@@ -1,0 +1,37 @@
+@import "./common/all";
+
+:root {
+  --color-primary-100: #355e81;
+  --color-primary-200: #20496a;
+  --color-primary-300: #12437b;
+  --color-secondary: #1fae09;
+  --color-black-200: #111215;
+  --color-gray-dark-200: #323438;
+  --color-gray-dark-300: #23252a;
+  --color-gray-light-100: #ccc;
+  --color-gray-light-200: #7b7c7e;
+  --color-white: #fff;
+
+  * {
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    padding: 0;
+  }
+
+  html {
+    width: 100%;
+    height: 100%;
+  }
+
+  body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+
+  input:focus, select:focus, textarea:focus, button:focus {
+    outline: none;
+  }
+}

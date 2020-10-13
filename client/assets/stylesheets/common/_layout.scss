@@ -1,0 +1,156 @@
+$spacings: (
+  "xxxs": 0.125rem,
+  "xxs": 0.25rem,
+  "xs": 0.5rem,
+  "s": 1rem,
+  "m": 1.25rem,
+  "l": 1.5rem,
+  "xl": 2rem,
+  "xxl": 2.5rem,
+  "xxxl": 3rem
+);
+
+:root {
+  @each $name, $value in $spacings {
+    --spc-#{$name}: #{$value};
+  }
+
+  @each $name, $value in $spacings {
+    .ma-#{$name} {
+      margin: var(--spc-#{$name});
+    }
+    .mx-#{$name} {
+      margin-right: var(--spc-#{$name});
+      margin-left: var(--spc-#{$name});
+    }
+    .my-#{$name} {
+      margin-top: var(--spc-#{$name});
+      margin-bottom: var(--spc-#{$name});
+    }
+    .mt-#{$name} {
+      margin-top: var(--spc-#{$name});
+    }
+    .mr-#{$name} {
+      margin-right: var(--spc-#{$name});
+    }
+    .mb-#{$name} {
+      margin-bottom: var(--spc-#{$name});
+    }
+    .ml-#{$name} {
+      margin-left: var(--spc-#{$name});
+    }
+    .pa-#{$name} {
+      padding: var(--spc-#{$name});
+    }
+    .px-#{$name} {
+      padding-right: var(--spc-#{$name});
+      padding-left: var(--spc-#{$name});
+    }
+    .py-#{$name} {
+      padding-top: var(--spc-#{$name});
+      padding-bottom: var(--spc-#{$name});
+    }
+    .pt-#{$name} {
+      padding-top: var(--spc-#{$name});
+    }
+    .pr-#{$name} {
+      padding-right: var(--spc-#{$name});
+    }
+    .pb-#{$name} {
+      padding-bottom: var(--spc-#{$name});
+    }
+    .pl-#{$name} {
+      padding-left: var(--spc-#{$name});
+    }
+  }
+
+  --header-height: 5rem;
+  --z-background: -1;
+  --z-content: 1;
+  --z-navbar: 10;
+  --border-radius-l: 10rem;
+}
+
+.flex-h {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.flex-v {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.flex-0 {
+  flex: 0;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.align-start {
+  align-items: flex-start;
+}
+
+.align-end {
+  align-items: flex-end;
+}
+
+.align-space-around {
+  align-content: space-around;
+}
+
+.align-stretch {
+  align-items: stretch;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-space-between {
+  justify-content: space-between;
+}
+
+.justify-space-around {
+  justify-content: space-around;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.relative {
+  position: relative;
+}
+
+.sticky {
+  position: sticky;
+}
+
+.text-ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
