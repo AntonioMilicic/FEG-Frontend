@@ -8,12 +8,15 @@
   --color-black-200: #111215;
   --color-gray-dark-200: #323438;
   --color-gray-dark-300: #23252a;
+  --color-gray-light-100: #ccc;
   --color-gray-light-200: #7b7c7e;
   --color-white: #fff;
 
   * {
+    font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
     list-style: none;
+    text-decoration: none;
     padding: 0;
   }
 
