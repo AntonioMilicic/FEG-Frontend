@@ -11,9 +11,6 @@ $spacings: (
 );
 
 :root {
-  --measure-m: 23.75rem;
-  --measure-l: 43.75rem;
-
   @each $name, $value in $spacings {
     --spc-#{$name}: #{$value};
   }
