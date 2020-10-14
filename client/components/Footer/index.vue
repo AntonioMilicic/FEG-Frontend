@@ -17,13 +17,13 @@ const linkSecondRow = [
   'Pravila o privatnosti', 'Obrazac za samoisključenje', 'GDPR Obrazac'
 ];
 const logos = [
-  { image: 'visa.png', alt: 'visa logo' },
-  { image: 'mastercard.png', alt: 'mastercard logo' },
-  { image: 'maestro.png', alt: 'maestro logo' },
-  { image: 'paysafe.svg', alt: 'paysafe logo' },
-  { image: 'skrill.png', alt: 'skrill logo' },
-  { image: 'abon.png', alt: 'abon logo' },
-  { image: 'aircash.png', alt: 'aircash logo' }
+  { image: 'logos/visa.png', alt: 'visa-logo' },
+  { image: 'logos/mastercard.png', alt: 'mastercard-logo' },
+  { image: 'logos/maestro.png', alt: 'maestro-logo' },
+  { image: 'logos/paysafe.svg', alt: 'paysafe-logo' },
+  { image: 'logos/skrill.png', alt: 'skrill-logo' },
+  { image: 'logos/abon.png', alt: 'abon-logo' },
+  { image: 'logos/aircash.png', alt: 'aircash-logo' }
 ];
 
 export default {
