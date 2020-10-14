@@ -2,8 +2,8 @@
   <div class=" flex-h">
     <base-link class="logo-link pt-l">
       <img
-        src="../../assets/images/logos/psk.png"
-        alt="psk Logo"
+        src="../../assets/images/logos/psk.svg"
+        alt="psk-logo"
         class="logo">
     </base-link>
     <ul class="flex-h mt-l ml-l pt-xxs h2">
