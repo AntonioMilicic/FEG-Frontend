@@ -1,18 +1,21 @@
 <template>
-  <div>
-    <nav></nav>
-    <div class="main-component">Test</div>
+  <div class="main-component pb-xxxl">
+    <navbar />
+    <router-view />
   </div>
 </template>
 
 <script>
+import Navbar from './Navbar';
+
 export default {
-  name: 'main-view'
+  name: 'main-view',
+  components: { Navbar }
 };
 </script>
 
 <style lang="scss" scoped>
 .main-component {
-  background-color: var(--color-gray-light-200);
+  background-color: var(--color-gray-dark-300);
 }
 </style>
