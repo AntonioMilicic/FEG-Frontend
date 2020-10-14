@@ -1,4 +1,4 @@
-import { faCaretDown, faEye, faTrophy, faWallet } from '@fortawesome/free-solid-svg-icons';
+import { faCaretDown, faEye, faHome, faSearch, faTrophy, faWallet } from '@fortawesome/free-solid-svg-icons';
 import App from './App.vue';
 import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
@@ -6,7 +6,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import router from './router';
 import Vue from 'vue';
 
-library.add(faCaretDown, faEye, faFacebookF, faWallet, faTrophy);
+library.add(faCaretDown, faEye, faFacebookF, faHome, faSearch, faWallet, faTrophy);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
