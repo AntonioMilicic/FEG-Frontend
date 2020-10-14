@@ -6,7 +6,7 @@
         alt="psk Logo"
         class="logo">
     </base-link>
-    <ul class="flex-h mt-l ml-l pt-xxs h1">
+    <ul class="flex-h mt-l ml-l pt-xxs h2">
       <li
         v-for="link in links"
         :key="link" class="link-container">

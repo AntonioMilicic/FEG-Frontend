@@ -43,6 +43,6 @@ export default {
 
 <style lang="scss" scoped>
 .footer-container {
-  background-color: var(--color-gray-dark-300);
+  background-color: var(--color-black);
 }
 </style>

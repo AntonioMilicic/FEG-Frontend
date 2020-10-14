@@ -1,5 +1,5 @@
 <template>
-  <div class="user-info flex-h justify-space-between pb-xxs p1">
+  <div class="user-info flex-h justify-space-between pb-xxs h3">
     <div class="ml-xxxs">{{ userName }}</div>
     <div>
       {{ password }}
@@ -26,6 +26,6 @@ export default {
 
 <style lang="scss" scoped>
 .user-info {
-  border-bottom: 3px solid var(--color-black-200);
+  border-bottom: 2px solid var(--color-black);
 }
 </style>

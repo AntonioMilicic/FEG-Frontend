@@ -35,7 +35,6 @@ export default {
 
   &:hover {
     color: var(--color-gray-light-100);
-    border-bottom: 2px solid var(--color-gray-light-100);
   }
 }
 

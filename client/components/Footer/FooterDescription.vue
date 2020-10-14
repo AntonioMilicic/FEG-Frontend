@@ -9,7 +9,7 @@
         <font-awesome-icon :icon="['fab', 'facebook-f']" size="lg" />
       </button>
       <button type="button" class="icon-button">18+</button>
-      <button type="button" class="lang-dropdown text mt-xxxs ml-xl p1">
+      <button type="button" class="lang-dropdown text mt-xxxs ml-xl h3">
         Hrvatski
         <font-awesome-icon icon="caret-down" size="sm" />
       </button>
