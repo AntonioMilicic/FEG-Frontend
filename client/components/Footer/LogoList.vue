@@ -10,18 +10,17 @@
 </template>
 
 <script>
+import { addRequireToSrc } from '@/helpers/AddReq';
 import BaseLink from '@/components/shared/BaseLink';
 
 export default {
   name: 'logo-list',
+  mixins: [addRequireToSrc],
   props: {
     logos: {
       type: Array,
       required: true
     }
-  },
-  methods: {
-    addRequireToSrc: src => require('../../assets/images/logos/' + src)
   },
   components: { BaseLink }
 };
