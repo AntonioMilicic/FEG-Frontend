@@ -1,11 +1,3 @@
-export const activeGameData = state => {
-  return state.activeGames;
-};
-
-export const finishedGameData = state => {
-  return state.finishedGames;
-};
-
-export const upcomingGameData = state => {
-  return state.upcomingGames;
-};
+export const activeGameData = state => state.activeGames;
+export const finishedGameData = state => state.finishedGames;
+export const upcomingGameData = state => state.upcomingGames;
