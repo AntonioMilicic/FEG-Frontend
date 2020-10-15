@@ -10,9 +10,15 @@
         registerBegins: game.registerBegins,
         players: game.players
       }">
-      <template #row1><div class="h4">Game begins</div></template>
-      <template #row2><div class="h4">Registration begins</div></template>
-      <template #row3><div class="h4">Players</div></template>
+      <template #row1>
+        <span class="h4">Game begins</span>
+      </template>
+      <template #row2>
+        <span class="h4">Registration begins</span>
+      </template>
+      <template #row3>
+        <span class="h4">Players</span>
+      </template>
     </game-form>
   </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
   <div class="user-info flex-h justify-space-between pb-xxs h3">
-    <div class="ml-xxxs">{{ userName }}</div>
+    <span class="ml-xxxs">{{ userName }}</span>
     <div>
       {{ password }}
       <slot></slot>

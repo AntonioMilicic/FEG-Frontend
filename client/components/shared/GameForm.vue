@@ -7,7 +7,7 @@
         :key="it"
         class="game-desc flex-v flex-1 justify-center">
         <slot :name="`row${index}`"></slot>
-        <div class="h1">{{ it }}</div>
+        <span class="h1">{{ it }}</span>
       </li>
       <li class="flex-h flex-1 justify-center align-center">
         <base-button
@@ -87,6 +87,10 @@ export default {
     .game-button {
       width: 40%;
       height: 50%;
+
+      .icon {
+        color: var(--color-accent);
+      }
     }
   }
 }

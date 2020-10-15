@@ -10,9 +10,15 @@
         userRank: game.userRank,
         totalPlayers: game.totalPlayers
       }">
-      <template #row1><div class="h4">Registration</div></template>
-      <template #row2><div class="h4">Your position</div></template>
-      <template #row3><div class="h4">Registered</div></template>
+      <template #row1>
+        <span class="h4">Registration</span>
+      </template>
+      <template #row2>
+        <span class="h4">Your position</span>
+      </template>
+      <template #row3>
+        <span class="h4">Registered</span>
+      </template>
     </game-form>
   </div>
 </template>

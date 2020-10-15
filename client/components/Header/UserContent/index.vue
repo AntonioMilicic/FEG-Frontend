@@ -14,7 +14,7 @@
       <user-info :user-name="userName" :password="password">
         <font-awesome-icon icon="eye" size="sm" class="ml-xxs" />
       </user-info>
-      <div class="link-container user-links mt-xxs p3 flex-h justify-space-between">
+      <div class="link-container user-links flex-h justify-space-between mt-xxs p3">
         <div>
           <base-link color="white" class="px-xxxs pb-xxxs mr-xs">
             Povijest igara
