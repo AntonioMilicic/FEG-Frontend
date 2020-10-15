@@ -69,7 +69,6 @@ export default {
         game.totalPlayers = totalPlayers;
       });
       this.activeGames = activeGames;
-
       status.active = activeExists;
     }
 
@@ -81,7 +80,6 @@ export default {
         return game;
       });
       this.finishedGames = finishedGames;
-
       status.finished = finishedGames.length;
     }
 
