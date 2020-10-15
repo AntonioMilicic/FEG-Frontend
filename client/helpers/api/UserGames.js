@@ -3,46 +3,38 @@ export const getGames = {
     id: 1,
     type: 'active',
     image: 'games/game-image-1.jpg',
-    description: [
-      { desc: 'Spinmaster' },
-      { title: 'Tournament ends', desc: '9h 50m' },
-      { title: 'Registration ends', desc: '9h 49m' },
-      { title: 'Players', desc: '' }
-    ]
+    title: 'Spinmaster',
+    tournamentEnds: '9h 50m',
+    registerEnds: '9h 49m',
+    totalPlayers: '' // calculated with random (it would have been sent from server as well)
   }],
-  upcomingGames: [{
+  upcomingGames: [{ // Don't have this view so I'll just send some data there for now
     id: 1,
     type: 'upcoming',
     image: 'games/game-image-3.png',
-    description: [
-      { desc: 'Spinmaster' },
-      { title: 'Tournament begins', desc: '22h 51m' },
-      { title: 'Registration begins', desc: '10h 51m' },
-      { title: 'Players', desc: 0 }
-    ]
+    title: 'Spinmaster',
+    begins: '22h 51m',
+    registerBegins: '10h 51m',
+    players: '0'
   }],
   finishedGames: [
     {
       id: 1,
       type: 'finished',
       image: 'games/game-image-1.jpg',
-      description: [
-        { desc: 'Spinmaster' },
-        { title: 'Registration', desc: 'Finished' },
-        { title: 'Your position', desc: '' },
-        { title: 'Registered', desc: '' }
-      ]
+      title: 'Spinmaster',
+      registration: 'Finished',
+      userRank: '',
+      totalPlayers: ''
     },
     {
       id: 2,
       type: 'finished',
       image: 'games/game-image-2.jpg',
-      description: [
-        { desc: 'Spinmaster' },
-        { title: 'Registration', desc: 'Finished' },
-        { title: 'Your position', desc: '' },
-        { title: 'Registered', desc: '' }
-      ]
+      title: 'Spinmaster',
+      registration: 'Finished',
+      userRank: '',
+      totalPlayers: ''
     }
   ]
 };
