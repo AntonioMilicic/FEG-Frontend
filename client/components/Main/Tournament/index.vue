@@ -26,10 +26,10 @@ export default {
     calculateRank: total => Math.floor(Math.random() * total),
     calculatePlayers(id) {
       const totalPlayers = Math.floor(Math.random() * (max - min + 1)) + min;
-      const data = id
-        ? { totalPlayers, userRank: this.calculateRank(totalPlayers) }
-        : totalPlayers;
-      return data;
+      if (!id) return totalPlayers;
+
+      const userRank = this.calculateRank(totalPlayers);
+      return { totalPlayers, userRank };
     },
     submitToStore(game) {
       if (game[0].type === 'active') this.submitActive(this.activeGames);
@@ -43,18 +43,9 @@ export default {
     })
   },
   watch: {
-    activeGames: {
-      handler: 'submitToStore',
-      deep: true
-    },
-    finishedGames: {
-      handler: 'submitToStore',
-      deep: true
-    },
-    upcomingGames: {
-      handler: 'submitToStore',
-      deep: true
-    }
+    activeGames: { handler: 'submitToStore', deep: true },
+    finishedGames: { handler: 'submitToStore', deep: true },
+    upcomingGames: { handler: 'submitToStore', deep: true }
   },
   created() {
     const { activeGames, finishedGames, upcomingGames } = getGames;
@@ -68,10 +59,7 @@ export default {
     };
 
     if (activeExists) {
-      activeGames.forEach(game => {
-        const totalPlayers = this.calculatePlayers();
-        game.totalPlayers = totalPlayers;
-      });
+      activeGames.forEach(game => { game.totalPlayers = this.calculatePlayers(); });
       this.activeGames = activeGames;
     }
 

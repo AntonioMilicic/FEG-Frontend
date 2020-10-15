@@ -31,9 +31,7 @@ import { mapGetters } from 'vuex';
 
 export default {
   name: 'active-tournament',
-  computed: {
-    ...mapGetters({ games: 'upcomingGameData' })
-  },
+  computed: { ...mapGetters({ games: 'upcomingGameData' }) },
   components: { BaseTournamentMessage, GameForm }
 };
 </script>

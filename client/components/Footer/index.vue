@@ -28,16 +28,8 @@ const logos = [
 
 export default {
   name: 'footer-container',
-  data: () => ({
-    linkFirstRow,
-    linkSecondRow,
-    logos
-  }),
-  components: {
-    FooterDescription,
-    LinkList,
-    LogoList
-  }
+  data: () => ({ linkFirstRow, linkSecondRow, logos }),
+  components: { FooterDescription, LinkList, LogoList }
 };
 </script>
 

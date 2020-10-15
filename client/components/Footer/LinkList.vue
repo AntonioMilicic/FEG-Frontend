@@ -4,7 +4,7 @@
       <base-link
         v-for="link in linkFirstRow"
         :key="link"
-        color="gray-light-100"
+        behaviour="color-gray-light-100"
         class="link px-xs">
         {{ link }}
       </base-link>
@@ -13,7 +13,7 @@
       <base-link
         v-for="link in linkSecondRow"
         :key="link"
-        color="gray-light-100"
+        behaviour="color-gray-light-100"
         class="link px-xs">
         {{ link }}
       </base-link>
@@ -27,14 +27,8 @@ import BaseLink from '@/components/shared/BaseLink';
 export default {
   name: 'footer-link-list',
   props: {
-    linkFirstRow: {
-      type: Array,
-      required: true
-    },
-    linkSecondRow: {
-      type: Array,
-      required: true
-    }
+    linkFirstRow: { type: Array, required: true },
+    linkSecondRow: { type: Array, required: true }
   },
   components: { BaseLink }
 };

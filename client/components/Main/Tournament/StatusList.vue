@@ -15,15 +15,8 @@ import BaseRouterLink from '@/components/shared/BaseRouterLink';
 
 export default {
   name: 'status-list',
-  props: {
-    status: {
-      type: Object,
-      required: true
-    }
-  },
-  filters: {
-    capital: value => (value.charAt(0).toUpperCase() + value.slice(1))
-  },
+  props: { status: { type: Object, required: true } },
+  filters: { capital: value => (value.charAt(0).toUpperCase() + value.slice(1)) },
   components: { BaseRouterLink }
 };
 </script>

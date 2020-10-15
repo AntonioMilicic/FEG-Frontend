@@ -3,6 +3,7 @@
     <base-link
       v-for="{ alt, image } in logos"
       :key="image"
+      behaviour="image"
       class="logo-link mx-s">
       <img :src="addRequireToSrc(image)" :alt="alt" class="logo">
     </base-link>
@@ -16,12 +17,7 @@ import BaseLink from '@/components/shared/BaseLink';
 export default {
   name: 'logo-list',
   mixins: [addRequireToSrc],
-  props: {
-    logos: {
-      type: Array,
-      required: true
-    }
-  },
+  props: { logos: { type: Array, required: true } },
   components: { BaseLink }
 };
 </script>

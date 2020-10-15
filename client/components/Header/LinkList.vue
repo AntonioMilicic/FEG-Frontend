@@ -4,13 +4,17 @@
       <img
         src="../../assets/images/logos/psk.svg"
         alt="psk-logo"
+        behaviour="image"
         class="logo">
     </base-link>
     <ul class="flex-h mt-l ml-l pt-xxs h2">
       <li
         v-for="link in links"
-        :key="link" class="link-container">
-        <base-link color="white" class="px-xs pb-xxs mx-xxxs upper">
+        :key="link"
+        class="link-container">
+        <base-link
+          behaviour="color-white"
+          class="px-xs pb-xxs mx-xxxs upper">
           {{ link }}
         </base-link>
       </li>
@@ -23,12 +27,7 @@ import BaseLink from '@/components/shared/BaseLink';
 
 export default {
   name: 'header-link-list',
-  props: {
-    links: {
-      type: Array,
-      required: true
-    }
-  },
+  props: { links: { type: Array, required: true } },
   components: { BaseLink }
 };
 </script>

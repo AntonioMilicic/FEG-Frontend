@@ -8,12 +8,7 @@
 <script>
 export default {
   name: 'base-tournament-message',
-  props: {
-    message: {
-      type: String,
-      default: ''
-    }
-  }
+  props: { message: { type: String, default: '' } }
 };
 </script>
 

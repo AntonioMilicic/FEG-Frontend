@@ -1,6 +1,7 @@
 <template>
   <div class="game-form flex-h px-m my-l">
     <img :src="addRequireToSrc(image)" alt="game-image" class="game-image">
+
     <ul class="game-content flex-v">
       <li
         v-for="(it, _, index) in description"
@@ -9,6 +10,7 @@
         <slot :name="`row${index}`"></slot>
         <span class="h1">{{ it }}</span>
       </li>
+
       <li class="flex-h flex-1 justify-center align-center">
         <base-button
           color="gray"
@@ -41,18 +43,10 @@ export default {
   name: 'game-form',
   mixins: [addRequireToSrc],
   props: {
-    image: {
-      type: String,
-      required: true
-    },
-    description: {
-      type: Object,
-      required: true
-    }
+    image: { type: String, required: true },
+    description: { type: Object, required: true }
   },
-  computed: {
-    currentRouteName: vm => vm.$route.name
-  },
+  computed: { currentRouteName: vm => vm.$route.name },
   components: { BaseButton }
 };
 </script>

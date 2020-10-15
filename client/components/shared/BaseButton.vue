@@ -9,9 +9,7 @@
 </template>
 
 <script>
-
 const colors = ['inherit', 'secondary', 'gray'];
-
 export default {
   name: 'base-button',
   props: {
@@ -33,6 +31,7 @@ export default {
 
   &.inherit {
     background-color: inherit;
+    cursor: initial;
   }
 
   &.secondary {
@@ -41,10 +40,6 @@ export default {
 
   &.gray {
     background-color: var(--color-gray-light-200);
-  }
-
-  &:focus {
-    outline: none;
   }
 }
 </style>

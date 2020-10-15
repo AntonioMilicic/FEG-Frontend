@@ -13,7 +13,10 @@
     <template #right>
       <div class="search flex-h align-center">
         <font-awesome-icon icon="search" class="nav-icon mx-xs" />
-        <input type="text" placeholder="Pretraži preko 300 igara..." class="input mx-xxs">
+        <input
+          type="text"
+          placeholder="Pretraži preko 300 igara..."
+          class="input mx-xxs">
       </div>
     </template>
   </base-navbar>
@@ -36,9 +39,7 @@ const tabs = [
 
 export default {
   name: 'main-navbar',
-  data: () => ({
-    tabs
-  }),
+  data: () => ({ tabs }),
   components: { BaseNavbar, BaseRouterLink }
 };
 </script>

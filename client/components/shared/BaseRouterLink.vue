@@ -7,12 +7,7 @@
 <script>
 export default {
   name: 'base-router-link',
-  props: {
-    name: {
-      type: String,
-      required: true
-    }
-  }
+  props: { name: { type: String, required: true } }
 };
 </script>
 

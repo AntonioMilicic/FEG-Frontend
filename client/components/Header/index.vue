@@ -1,7 +1,10 @@
 <template>
   <nav class="header-container flex-h justify-space-between px-m">
     <link-list :links="links" class="header-left" />
-    <user-content :user-name="userName" :password="password" class="header-right" />
+    <user-content
+      :user-name="userName"
+      :password="password"
+      class="header-right" />
   </nav>
 </template>
 
