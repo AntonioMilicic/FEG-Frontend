@@ -6,8 +6,8 @@
         v-for="(it, _, index) in description"
         :key="it"
         class="game-desc flex-v flex-1 justify-center">
-        <slot :name="`row${index}`" class="text"></slot>
-        <div class="text h1">{{ it }}</div>
+        <slot :name="`row${index}`"></slot>
+        <div class="h1">{{ it }}</div>
       </li>
       <li class="flex-h flex-1 justify-center align-center">
         <base-button
