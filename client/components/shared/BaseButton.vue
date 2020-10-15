@@ -10,7 +10,7 @@
 
 <script>
 
-const colors = ['secondary', 'gray'];
+const colors = ['inherit', 'secondary', 'gray'];
 
 export default {
   name: 'base-button',
@@ -30,6 +30,10 @@ export default {
   border: none;
   border-radius: var(--border-radius-xxxs);
   cursor: pointer;
+
+  &.inherit {
+    background-color: inherit;
+  }
 
   &.secondary {
     background-color: var(--color-secondary);
