@@ -58,19 +58,22 @@ export default {
   },
   created() {
     const { activeGames, finishedGames, upcomingGames } = getGames;
+    const activeExists = activeGames.length;
+    const finishedExists = finishedGames.length;
+    const upcomingExists = upcomingGames.length;
     const status = {};
 
-    if (activeGames.length) {
+    if (activeExists) {
       activeGames.forEach(game => {
         const totalPlayers = this.calculatePlayers();
         game.totalPlayers = totalPlayers;
       });
       this.activeGames = activeGames;
 
-      status.active = activeGames.length;
+      status.active = activeExists;
     }
 
-    if (finishedGames.length) {
+    if (finishedExists) {
       finishedGames.forEach(game => {
         const { totalPlayers, userRank } = this.calculatePlayers(this.userId);
         game.userRank = userRank;
@@ -82,9 +85,9 @@ export default {
       status.finished = finishedGames.length;
     }
 
-    if (upcomingGames.length) {
+    if (upcomingExists) {
       this.upcomingGames = upcomingGames;
-      status.upcoming = upcomingGames.length;
+      status.upcoming = upcomingExists;
     }
 
     this.status = status;
