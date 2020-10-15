@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import { addRequireToSrc } from '@/helpers/AddReq';
+import { addRequireToSrc } from '@/helpers/mixins/AddRequireMixin';
 import BaseButton from '@/components/shared/BaseButton';
 
 export default {

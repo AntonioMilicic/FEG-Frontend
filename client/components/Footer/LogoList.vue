@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { addRequireToSrc } from '@/helpers/AddReq';
+import { addRequireToSrc } from '@/helpers/mixins/AddRequireMixin';
 import BaseLink from '@/components/shared/BaseLink';
 
 export default {
