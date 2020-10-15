@@ -17,5 +17,6 @@ export default {
 <style lang="scss" scoped>
 .main-component {
   background-color: var(--color-gray-dark-300);
+  flex: auto;
 }
 </style>
