@@ -26,6 +26,6 @@ export default {
 
 <style lang="scss" scoped>
 .user-info {
-  border-bottom: 2px solid var(--color-black);
+  border-bottom: 2px solid var(--color-black-200);
 }
 </style>

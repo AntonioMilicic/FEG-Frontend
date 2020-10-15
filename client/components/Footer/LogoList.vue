@@ -28,8 +28,8 @@ export default {
 
 <style lang="scss" scoped>
 .logo-container {
-  border-top: 2px solid var(--color-black);
-  border-bottom: 2px solid var(--color-black);
+  border-top: 2px solid var(--color-black-100);
+  border-bottom: 2px solid var(--color-black-100);
 
   .logo-link {
     width: 6rem;

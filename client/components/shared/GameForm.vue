@@ -74,7 +74,7 @@ export default {
 
     li:first-child {
       border-top-right-radius: var(--border-radius-xxs);
-      background-color: var(--color-black);
+      background-color: var(--color-black-200);
     }
 
     .game-desc {

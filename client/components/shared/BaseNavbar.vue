@@ -19,6 +19,6 @@ export default {
 <style lang="scss" scoped>
 .base-navbar {
   height: var(--nav-height);
-  background-color: var(--color-black);
+  background-color: var(--color-black-200);
 }
 </style>
