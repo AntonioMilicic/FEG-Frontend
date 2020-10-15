@@ -54,6 +54,7 @@ export default {
 <style lang="scss" scoped>
 .game-form {
   width: 100%;
+  max-width: var(--measure-xxl);
   height: 25rem;
 
   .game-image {
