@@ -1,5 +1,5 @@
 <template>
-  <base-navbar>
+  <base-navbar class="main-navbar">
     <template #left>
       <font-awesome-icon icon="home" size="lg" class="nav-icon mr-s" />
       <base-router-link
@@ -45,6 +45,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.main-navbar {
+  height: var(--nav-height);
+  background-color: var(--color-black-200);
+}
+
 .nav-icon {
   color: var(--color-white);
 }
