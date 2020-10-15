@@ -3,6 +3,7 @@
     <base-link
       v-for="{ alt, image } in logos"
       :key="image"
+      behaviour="image"
       class="logo-link mx-s">
       <img :src="addRequireToSrc(image)" :alt="alt" class="logo">
     </base-link>
@@ -10,27 +11,21 @@
 </template>
 
 <script>
+import { addRequireToSrc } from '@/helpers/mixins/AddRequireMixin';
 import BaseLink from '@/components/shared/BaseLink';
 
 export default {
   name: 'logo-list',
-  props: {
-    logos: {
-      type: Array,
-      required: true
-    }
-  },
-  methods: {
-    addRequireToSrc: src => require('../../assets/images/logos/' + src)
-  },
+  mixins: [addRequireToSrc],
+  props: { logos: { type: Array, required: true } },
   components: { BaseLink }
 };
 </script>
 
 <style lang="scss" scoped>
 .logo-container {
-  border-top: 2px solid var(--color-black-200);
-  border-bottom: 2px solid var(--color-black-200);
+  border-top: 2px solid var(--color-black-100);
+  border-bottom: 2px solid var(--color-black-100);
 
   .logo-link {
     width: 6rem;

@@ -1,11 +1,16 @@
 <template>
-  <nav class="header-container flex-h justify-space-between px-m">
-    <link-list :links="links" class="header-left" />
-    <user-content :user-name="userName" :password="password" class="header-right" />
-  </nav>
+  <base-navbar class="header-navbar">
+    <template #left><link-list :links="links" /></template>
+    <template #right>
+      <user-content
+        :user-name="userName"
+        :password="password" />
+    </template>
+  </base-navbar>
 </template>
 
 <script>
+import BaseNavbar from '@/components/shared/BaseNavbar';
 import LinkList from './LinkList';
 import UserContent from '@/components/Header/UserContent';
 
@@ -19,12 +24,12 @@ export default {
     userName: 'Antonio',
     password: '******'
   }),
-  components: { LinkList, UserContent }
+  components: { BaseNavbar, LinkList, UserContent }
 };
 </script>
 
 <style lang="scss" scoped>
-.header-container {
+.header-navbar {
   height: var(--header-height);
   background-color: var(--color-primary-300);
 }

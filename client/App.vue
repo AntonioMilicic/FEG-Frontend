@@ -1,5 +1,5 @@
 <template>
-  <div class="app">
+  <div class="app flex-v">
     <header-component />
     <router-view />
     <footer-component />

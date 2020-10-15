@@ -1,20 +1,16 @@
 <template>
-  <a :href="href" :class="{ [color]: true }">
+  <a :href="href" :class="{ [behaviour]: true }">
     <slot></slot>
   </a>
 </template>
 
 <script>
-const behaviour = ['image', 'white', 'gray-light-100'];
-
+const behaviour = ['image', 'color-white', 'color-gray-light-100'];
 export default {
   name: 'base-link',
   props: {
-    href: {
-      type: String,
-      default: '#'
-    },
-    color: {
+    href: { type: String, default: '#' },
+    behaviour: {
       type: String,
       validator: val => behaviour.includes(val),
       default: behaviour[0]
@@ -30,16 +26,15 @@ export default {
   }
 }
 
-.white {
+.color-white {
   color: var(--color-white);
 
   &:hover {
     color: var(--color-gray-light-100);
-    border-bottom: 2px solid var(--color-gray-light-100);
   }
 }
 
-.gray-light-100 {
+.color-gray-light-100 {
   color: var(--color-gray-light-100);
 
   &:hover {
