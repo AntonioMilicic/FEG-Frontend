@@ -16,6 +16,7 @@ const min = 1000;
 export default {
   name: 'tournament-view',
   data: () => ({
+    userId: 123,
     status: '',
     activeGames: '',
     upcomingGames: '',
@@ -57,30 +58,36 @@ export default {
   },
   created() {
     const { activeGames, finishedGames, upcomingGames } = getGames;
+    const status = {};
 
-    const status = {
-      active: activeGames.length,
-      upcoming: upcomingGames.length,
-      finished: finishedGames.length
-    };
+    if (activeGames.length) {
+      activeGames.forEach(game => {
+        const totalPlayers = this.calculatePlayers();
+        game.totalPlayers = totalPlayers;
+      });
+      this.activeGames = activeGames;
+
+      status.active = activeGames.length;
+    }
+
+    if (finishedGames.length) {
+      finishedGames.forEach(game => {
+        const { totalPlayers, userRank } = this.calculatePlayers(this.userId);
+        game.userRank = userRank;
+        game.totalPlayers = totalPlayers;
+        return game;
+      });
+      this.finishedGames = finishedGames;
+
+      status.finished = finishedGames.length;
+    }
+
+    if (upcomingGames.length) {
+      this.upcomingGames = upcomingGames;
+      status.upcoming = upcomingGames.length;
+    }
+
     this.status = status;
-
-    this.upcomingGames = upcomingGames;
-
-    const finished = finishedGames.map(game => {
-      const { totalPlayers, userRank } = this.calculatePlayers(game.id);
-      game.description[2].desc = userRank;
-      game.description[3].desc = totalPlayers;
-      return game;
-    });
-    this.finishedGames = finished;
-
-    const active = activeGames.map(game => {
-      const totalPlayers = this.calculatePlayers();
-      game.description[3].desc = totalPlayers;
-      return game;
-    });
-    this.activeGames = active;
   },
   components: { StatusList }
 };
