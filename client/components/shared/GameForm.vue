@@ -1,13 +1,13 @@
 <template>
   <div class="game-form flex-h pa-m">
-    <img :src="addRequireToSrc(game.image)" alt="game-image" class="game-image">
+    <img :src="addRequireToSrc(image)" alt="game-image" class="game-image">
     <ul class="game-content flex-v">
       <li
-        v-for="row in game.description"
-        :key="row.title"
+        v-for="(it, _, index) in description"
+        :key="it"
         class="game-desc flex-v flex-1 justify-center">
-        <div v-if="row.title" class="text h4">{{ row.title }}</div>
-        <div class="text h1">{{ row.desc }}</div>
+        <slot :name="`row${index}`" class="text"></slot>
+        <div class="text h1">{{ it }}</div>
       </li>
       <li class="flex-h flex-1 justify-center align-center">
         <base-button
@@ -38,7 +38,11 @@ export default {
   name: 'game-form',
   mixins: [addRequireToSrc],
   props: {
-    game: {
+    image: {
+      type: String,
+      required: true
+    },
+    description: {
       type: Object,
       required: true
     }
@@ -77,10 +81,6 @@ export default {
     .game-desc {
       color: var(--color-white);
       border-bottom: 2px solid var(--color-gray-light-200);
-
-      .text {
-        height: fit-content;
-      }
     }
 
     .game-button {
