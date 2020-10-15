@@ -61,7 +61,11 @@ export default {
     const activeExists = activeGames.length;
     const finishedExists = finishedGames.length;
     const upcomingExists = upcomingGames.length;
-    const status = {};
+    this.status = {
+      active: activeExists,
+      finished: finishedExists,
+      upcoming: upcomingExists
+    };
 
     if (activeExists) {
       activeGames.forEach(game => {
@@ -69,7 +73,6 @@ export default {
         game.totalPlayers = totalPlayers;
       });
       this.activeGames = activeGames;
-      status.active = activeExists;
     }
 
     if (finishedExists) {
@@ -80,15 +83,9 @@ export default {
         return game;
       });
       this.finishedGames = finishedGames;
-      status.finished = finishedGames.length;
     }
 
-    if (upcomingExists) {
-      this.upcomingGames = upcomingGames;
-      status.upcoming = upcomingExists;
-    }
-
-    this.status = status;
+    if (upcomingExists) this.upcomingGames = upcomingGames;
   },
   components: { StatusList }
 };

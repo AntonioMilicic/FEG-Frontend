@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="games.length">
     <game-form
       v-for="game in games"
       :key="game.id"
@@ -21,9 +21,11 @@
       </template>
     </game-form>
   </div>
+  <base-tournament-message v-else message="finished" />
 </template>
 
 <script>
+import BaseTournamentMessage from '@/components/shared/BaseTournamentMessage';
 import GameForm from '@/components/shared/GameForm';
 import { mapGetters } from 'vuex';
 
@@ -32,6 +34,6 @@ export default {
   computed: {
     ...mapGetters({ games: 'finishedGameData' })
   },
-  components: { GameForm }
+  components: { BaseTournamentMessage, GameForm }
 };
 </script>
