@@ -17,6 +17,7 @@
         </base-button>
         <base-button
           v-if="currentRouteName === 'active'"
+          color="secondary"
           class="game-button mx-xs p4">
           REGISTER
         </base-button>
