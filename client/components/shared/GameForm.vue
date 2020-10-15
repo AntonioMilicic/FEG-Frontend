@@ -61,17 +61,16 @@ export default {
 
   .game-image {
     width: 70%;
-    height: 100%;
     border-radius: var(--border-radius-xxs) 0 0 var(--border-radius-xxs);
   }
 
   .game-content {
     width: 30%;
-    height: 100%;
     margin: 0;
     text-align: center;
     background-color: var(--color-gray-dark-100);
     border-bottom-right-radius: var(--border-radius-xxs);
+    border-top-right-radius: var(--border-radius-xxs);
 
     li:first-child {
       border-top-right-radius: var(--border-radius-xxs);
