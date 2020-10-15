@@ -23,7 +23,8 @@
         <base-button
           v-else-if="currentRouteName === 'finished'"
           class="game-button mx-xs p4">
-          LOGGED IN
+          <font-awesome-icon icon="check" size="lg" class="icon" />
+          <span class="ml-xxs">Logged in</span>
         </base-button>
       </li>
     </ul>
