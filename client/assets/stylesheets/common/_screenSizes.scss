@@ -1,4 +1,8 @@
-$breakpoint-s: 30rem;
-$breakpoint-m: 48rem;
-$breakpoint-l: 75rem;
-$breakpoint-xxl: 114rem;
+:root {
+  --breakpoint-xxs: 20rem;
+  --breakpoint-xs: 30rem;
+  --breakpoint-s: 48rem;
+  --breakpoint-m: 64rem;
+  --breakpoint-l: 75rem;
+  --measure-xxl: 87.5rem;
+}

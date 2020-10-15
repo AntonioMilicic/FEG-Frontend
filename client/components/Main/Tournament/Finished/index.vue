@@ -1,5 +1,5 @@
 <template>
-  <div v-if="games.length">
+  <div v-if="games.length" class="flex-v align-center">
     <game-form
       v-for="game in games"
       :key="game.id"
