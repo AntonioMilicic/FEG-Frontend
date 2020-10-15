@@ -1,5 +1,5 @@
 <template>
-  <div class="game-form flex-h pa-m">
+  <div class="game-form flex-h px-m my-l">
     <img :src="addRequireToSrc(image)" alt="game-image" class="game-image">
     <ul class="game-content flex-v">
       <li
