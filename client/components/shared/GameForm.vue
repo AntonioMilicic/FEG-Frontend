@@ -4,13 +4,12 @@
 
     <ul class="game-content flex-v">
       <li
-        v-for="(it, _, index) in description"
+        v-for="(it, _, index) in gameStateDescription"
         :key="it"
         class="game-desc flex-v flex-1 justify-center">
         <slot :name="`row${index}`"></slot>
-        <span class="h1">{{ it }}</span>
+        <span class="h3">{{ it }}</span>
       </li>
-
       <li class="flex-h flex-1 justify-center align-center">
         <base-button
           color="gray"
@@ -44,7 +43,7 @@ export default {
   mixins: [addRequireToSrc],
   props: {
     image: { type: String, required: true },
-    description: { type: Object, required: true }
+    gameStateDescription: { type: Object, required: true }
   },
   computed: { currentRouteName: vm => vm.$route.name },
   components: { BaseButton }

@@ -4,7 +4,7 @@
       v-for="game in games"
       :key="game.id"
       :image="game.image"
-      :description="{
+      :game-state-description="{
         title: game.title,
         registration: game.registration,
         userRank: game.userRank,
