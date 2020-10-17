@@ -68,20 +68,24 @@ export default {
     border-bottom-right-radius: var(--border-radius-xxs);
     border-top-right-radius: var(--border-radius-xxs);
 
-    li:first-child {
-      border-top-right-radius: var(--border-radius-xxs);
-      background-color: var(--color-black-200);
-
-      span {
-        font-size: 1.25rem;
-        font-weight: 700;
-        text-transform: uppercase;
-      }
-    }
-
     .game-desc {
       color: var(--color-white);
       border-bottom: 2px solid var(--color-gray-light-200);
+
+      &:first-child {
+        border-top-right-radius: var(--border-radius-xxs);
+        background-color: var(--color-black-200);
+
+        span {
+          font-size: 1.25rem;
+          font-weight: 700;
+          text-transform: uppercase;
+        }
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
     }
 
     .game-button {
