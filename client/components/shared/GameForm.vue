@@ -80,8 +80,9 @@ export default {
     }
 
     .game-button {
-      width: 40%;
-      height: 50%;
+      width: 10rem;
+      height: 1.75rem;
+      color: var(--color-white);
 
       .icon {
         color: var(--color-accent);
