@@ -56,8 +56,8 @@ export default {
     const upcomingExists = upcomingGames.length;
     this.status = {
       active: activeExists,
-      finished: finishedExists,
-      upcoming: upcomingExists
+      upcoming: upcomingExists,
+      finished: finishedExists
     };
 
     if (activeExists) {
