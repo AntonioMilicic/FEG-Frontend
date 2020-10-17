@@ -11,13 +11,13 @@
         totalPlayers: game.totalPlayers
       }">
       <template #row1>
-        <span class="h4">Registration</span>
+        <span class="p1">Registration</span>
       </template>
       <template #row2>
-        <span class="h4">Your position</span>
+        <span class="p1">Your position</span>
       </template>
       <template #row3>
-        <span class="h4">Registered</span>
+        <span class="p1">Registered</span>
       </template>
     </game-form>
   </div>

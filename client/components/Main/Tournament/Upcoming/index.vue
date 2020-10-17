@@ -11,13 +11,13 @@
         players: game.players
       }">
       <template #row1>
-        <span class="h4">Game begins</span>
+        <span class="p1">Game begins</span>
       </template>
       <template #row2>
-        <span class="h4">Registration begins</span>
+        <span class="p1">Registration begins</span>
       </template>
       <template #row3>
-        <span class="h4">Players</span>
+        <span class="p1">Players</span>
       </template>
     </game-form>
   </div>

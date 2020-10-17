@@ -11,13 +11,13 @@
         totalPlayers: game.totalPlayers
       }">
       <template #row1>
-        <span class="h4">Tournament ends</span>
+        <span class="p1">Tournament ends</span>
       </template>
       <template #row2>
-        <span class="h4">Registation ends</span>
+        <span class="p1">Registation ends</span>
       </template>
       <template #row3>
-        <span class="h4">Players</span>
+        <span class="p1">Players</span>
       </template>
     </game-form>
   </div>
