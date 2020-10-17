@@ -3,6 +3,7 @@
     <game-form
       v-for="game in games"
       :key="game.id"
+      @show-details="showDetails"
       :image="game.image"
       :game-state-description="{
         title: game.title,
@@ -32,6 +33,11 @@ import TournamentMessage from '../message/TournamentErrorMessage';
 export default {
   name: 'active-tournament',
   computed: { ...mapGetters({ games: 'activeGameData' }) },
+  methods: {
+    showDetails() {
+      console.log('Show modal');
+    }
+  },
   components: { GameForm, TournamentMessage }
 };
 </script>

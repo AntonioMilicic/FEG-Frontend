@@ -14,6 +14,7 @@
         v-if="currentRouteName !== 'upcoming'"
         class="flex-h flex-1 justify-center align-center">
         <base-button
+          @click="$emit('show-details')"
           color="gray"
           class="game-button mx-xs p4">
           DETAILS
