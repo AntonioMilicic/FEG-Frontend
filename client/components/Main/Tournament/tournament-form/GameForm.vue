@@ -10,7 +10,9 @@
         <slot :name="`row${index}`"></slot>
         <span class="h3">{{ it }}</span>
       </li>
-      <li class="flex-h flex-1 justify-center align-center">
+      <li
+        v-if="currentRouteName !== 'upcoming'"
+        class="flex-h flex-1 justify-center align-center">
         <base-button
           color="gray"
           class="game-button mx-xs p4">
