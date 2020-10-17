@@ -22,13 +22,12 @@
           class="game-button mx-xs p4">
           REGISTER
         </base-button>
-        <base-button
+        <div
           v-else-if="currentRouteName === 'finished'"
-          color="inherit"
           class="game-button mx-xs p4">
           <font-awesome-icon icon="check" size="lg" class="icon" />
           <span class="ml-xxs">Logged in</span>
-        </base-button>
+        </div>
       </li>
     </ul>
   </div>
@@ -72,6 +71,12 @@ export default {
     li:first-child {
       border-top-right-radius: var(--border-radius-xxs);
       background-color: var(--color-black-200);
+
+      span {
+        font-size: 1.25rem;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
     }
 
     .game-desc {
