@@ -21,17 +21,17 @@
       </template>
     </game-form>
   </div>
-  <base-tournament-message v-else message="finished" />
+  <tournament-message v-else message="finished" />
 </template>
 
 <script>
-import BaseTournamentMessage from '@/components/shared/BaseTournamentMessage';
 import GameForm from '../tournament-form/GameForm';
 import { mapGetters } from 'vuex';
+import TournamentMessage from '../message/TournamentErrorMessage';
 
 export default {
   name: 'active-tournament',
   computed: { ...mapGetters({ games: 'finishedGameData' }) },
-  components: { BaseTournamentMessage, GameForm }
+  components: { GameForm, TournamentMessage }
 };
 </script>
