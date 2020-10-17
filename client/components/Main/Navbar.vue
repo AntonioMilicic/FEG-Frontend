@@ -39,7 +39,7 @@ const tabs = [
 
 export default {
   name: 'main-navbar',
-  data: () => ({ tabs }),
+  created() { this.tabs = tabs; },
   components: { BaseNavbar, BaseRouterLink }
 };
 </script>

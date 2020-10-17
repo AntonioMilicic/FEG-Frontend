@@ -28,7 +28,11 @@ const logos = [
 
 export default {
   name: 'footer-container',
-  data: () => ({ linkFirstRow, linkSecondRow, logos }),
+  created() {
+    this.linkFirstRow = linkFirstRow;
+    this.linkSecondRow = linkSecondRow;
+    this.logos = logos;
+  },
   components: { FooterDescription, LinkList, LogoList }
 };
 </script>

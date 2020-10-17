@@ -19,11 +19,8 @@ const links = ['Sport', 'Uživo', 'Loto', 'Casino', 'Vegas',
 
 export default {
   name: 'header-component',
-  data: () => ({
-    links,
-    userName: 'Antonio',
-    password: '******'
-  }),
+  data: () => ({ userName: 'Antonio', password: '******' }),
+  created() { this.links = links; },
   components: { BaseNavbar, LinkList, UserContent }
 };
 </script>
