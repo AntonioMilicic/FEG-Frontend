@@ -26,7 +26,7 @@
 
 <script>
 import BaseTournamentMessage from '@/components/shared/BaseTournamentMessage';
-import GameForm from '@/components/shared/GameForm';
+import GameForm from '../tournament-form/GameForm';
 import { mapGetters } from 'vuex';
 
 export default {
