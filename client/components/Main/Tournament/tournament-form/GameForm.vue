@@ -10,24 +10,20 @@
         <slot :name="`row${index}`"></slot>
         <span class="h3">{{ it }}</span>
       </li>
-      <li
-        v-if="currentRouteName !== 'upcoming'"
-        class="flex-h flex-1 justify-center align-center">
+      <li v-if="notUpcoming" class="flex-h flex-1 justify-center align-center">
         <base-button
-          @click="$emit('show-details', {image, gameStateDescription, gameRules})"
+          @click="$emit('show-details', { image, gameStateDescription, gameRules })"
           color="gray"
           class="game-button mx-xs p4">
           DETAILS
         </base-button>
         <base-button
-          v-if="currentRouteName === 'active'"
+          v-if="isActive"
           color="secondary"
           class="game-button mx-xs p4">
           REGISTER
         </base-button>
-        <div
-          v-else-if="currentRouteName === 'finished'"
-          class="game-button mx-xs p4">
+        <div v-else class="game-button mx-xs p4">
           <font-awesome-icon icon="check" size="lg" class="icon" />
           <span class="ml-xxs">Logged in</span>
         </div>
@@ -48,7 +44,11 @@ export default {
     gameStateDescription: { type: Object, required: true },
     gameRules: { type: String, default: 'Game rules' }
   },
-  computed: { currentRouteName: vm => vm.$route.name },
+  computed: {
+    // Could be done with one boolean, but this is more descriptive
+    isActive: vm => vm.$route.name === 'active',
+    notUpcoming: vm => vm.$route.name !== 'upcoming'
+  },
   components: { BaseButton }
 };
 </script>
