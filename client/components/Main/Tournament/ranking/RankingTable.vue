@@ -41,8 +41,7 @@
 export default {
   name: 'ranking-table',
   props: {
-    gameState: { type: String, required: true },
-    ranking: { type: Object, required: true },
+    ranking: { type: Array, required: true },
     userRank: { type: Number, default: null }
   },
   filters: {
