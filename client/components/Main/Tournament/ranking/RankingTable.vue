@@ -5,9 +5,7 @@
       <span class="pl-xxs">RANKING</span>
     </div>
     <div class="table-content">
-      <table
-        v-if="currentRouteName !== 'upcoming'"
-        class="table-content-table">
+      <table class="table-content-table">
         <tr>
           <th></th>
           <th>Username</th>
