@@ -15,7 +15,7 @@
         <tr
           v-for="{ rank, username, score, prize } in ranking"
           :key="username"
-          :class="{marked: rank === userRank}"
+          :class="{ marked: rank === userRank }"
           class="row-data">
           <td>
             <span
@@ -49,10 +49,12 @@ export default {
       const maskChar = '*';
       const maskStart = Math.floor(name.length / 2) - 1;
       const maskEnd = maskStart + Math.floor(name.length / 2);
+
       const masked = name.split('').map((char, index) => {
         if (index >= maskStart && index < maskEnd) return maskChar;
         return char;
       });
+
       return masked.join('');
     },
     currency: value => {
