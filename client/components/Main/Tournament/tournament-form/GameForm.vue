@@ -14,7 +14,7 @@
         v-if="currentRouteName !== 'upcoming'"
         class="flex-h flex-1 justify-center align-center">
         <base-button
-          @click="$emit('show-details')"
+          @click="$emit('show-details', {image, gameStateDescription, gameRules})"
           color="gray"
           class="game-button mx-xs p4">
           DETAILS
@@ -45,7 +45,8 @@ export default {
   mixins: [addRequireToSrc],
   props: {
     image: { type: String, required: true },
-    gameStateDescription: { type: Object, required: true }
+    gameStateDescription: { type: Object, required: true },
+    gameRules: { type: String, default: 'Game rules' }
   },
   computed: { currentRouteName: vm => vm.$route.name },
   components: { BaseButton }
