@@ -27,6 +27,7 @@
 
 <script>
 import { addRequireToSrc } from '@/helpers/mixins/AddRequireMixin';
+import BaseButton from '@/components/shared/BaseButton';
 
 export default {
   name: 'game-carousel',
@@ -34,7 +35,8 @@ export default {
   props: { // Prebaci v-if/show u computed
     images: { type: Array, required: true },
     total: { type: Number, required: true }
-  }
+  },
+  components: { BaseButton }
 };
 </script>
 
