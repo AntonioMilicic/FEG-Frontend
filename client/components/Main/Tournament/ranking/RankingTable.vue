@@ -2,7 +2,7 @@
   <div class="ranking-table">
     <div class="ranking-title flex-h justify-center py-s">
       <font-awesome-icon icon="trophy" class="ranking-title-icon" />
-      <span class="pl-xxs">Ranking</span>
+      <span class="pl-xxs">RANKING</span>
     </div>
     <div class="table-content">
       <table
