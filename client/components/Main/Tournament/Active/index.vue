@@ -35,8 +35,8 @@ import RankingModal from '../ranking/RankingForm';
 import TournamentMessage from '../message/TournamentErrorMessage';
 const gameStats = [
   { title: 'Players', content: '' },
-  { title: 'Registered', content: '487' }, // The f? This data shouldnt be part of active
-  { title: 'Registration', content: 'Finished' }, // Nor this
+  { title: 'Registered', content: '487' },
+  { title: 'Registration', content: 'Finished' },
   { title: 'Included games', content: '58' }
 ];
 
