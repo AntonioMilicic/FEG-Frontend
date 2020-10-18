@@ -1,9 +1,9 @@
 <template>
   <div class="image-content flex-v">
     <span
-      v-if="gameState === 'popular'"
-      class="image-content-top h2 px-xs mx-s my-m">
-      ACTIVE
+      class="image-content-top h2 px-xs mx-s my-m"
+      :class="{finished: statusText}">
+      {{ statusText }}
     </span>
     <span
       v-else-if="gameState === 'finished'"
@@ -20,7 +20,7 @@
         align-center px-m">
       <span class="h1">{{ game.title }}</span>
       <base-button
-        v-show="gameState === 'popular'"
+        v-if="isActive"
         class="image-content-bottom-button p4"
         color="secondary">
         REGISTER
@@ -31,14 +31,18 @@
 
 <script>
 import { addRequireToSrc } from '@/helpers/mixins/AddRequireMixin';
+import BaseButton from '@/components/shared/BaseButton';
 
 export default {
   name: 'ranking-header',
   mixins: [addRequireToSrc],
   props: {
-    gameState: { type: String, required: true }, // Change popular to active
-    image: { type: String, required: true }
-  }
+    isActive: { type: Boolean, default: true },
+    image: { type: String, required: true },
+    title: { type: String, default: 'Game title' }
+  },
+  computed: { statusText: vm => vm.isActive ? 'ACTIVE' : 'FINISHED' },
+  components: { BaseButton }
 };
 </script>
 
@@ -52,8 +56,12 @@ export default {
     top: 0;
     left: 0;
     color: white;
-    background-color: red; // Change with variable
+    background-color: var(--color-gray-light-200); // Add gradient
     font-style: italic;
+
+    .finished {
+      background-color: red; // variable
+    }
   }
 
   &-image {
