@@ -5,6 +5,7 @@
       :key="game.id"
       @show-details="showDetails"
       :image="game.image"
+      :game-rules="game.rules"
       :game-state-description="{
         title: game.title,
         tournamentEnds: game.tournamentEnds,
