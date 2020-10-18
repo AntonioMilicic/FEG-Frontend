@@ -12,9 +12,6 @@ import { getGames } from '@/helpers/api/UserGames';
 import { mapActions } from 'vuex';
 import StatusList from './StatusList';
 
-const max = 2000;
-const min = 1000;
-
 export default {
   name: 'tournament-view',
   data: () => ({

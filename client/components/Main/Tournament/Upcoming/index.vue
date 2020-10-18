@@ -1,5 +1,5 @@
 <template>
-  <div v-if="games.length" class="flex-v align-center">
+  <div v-if="gameExists" class="flex-v align-center">
     <game-form
       v-for="game in games"
       :key="game.id"
@@ -25,13 +25,18 @@
 </template>
 
 <script>
+import { gameExists } from '@/helpers/mixins/BooleanMixin';
 import GameForm from '../tournament-form/GameForm';
 import { mapGetters } from 'vuex';
 import TournamentMessage from '../message/TournamentErrorMessage';
 
 export default {
   name: 'active-tournament',
-  computed: { ...mapGetters({ games: 'upcomingGameData' }) },
+  mixins: [gameExists],
+  computed: {
+    gameExists: vm => Boolean(vm.games.length),
+    ...mapGetters({ games: 'upcomingGameData' })
+  },
   components: { GameForm, TournamentMessage }
 };
 </script>

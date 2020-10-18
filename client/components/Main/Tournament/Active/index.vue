@@ -1,5 +1,5 @@
 <template>
-  <div v-if="games.length" class="flex-v align-center">
+  <div v-if="gameExists" class="flex-v align-center">
     <game-form
       v-for="game in games"
       :key="game.id"
@@ -28,6 +28,7 @@
 
 <script>
 import { getGameCarousel, getRanking } from '@/helpers/api/UserGames';
+import { gameExists } from '@/helpers/mixins/BooleanMixin';
 import GameForm from '../tournament-form/GameForm';
 import { mapGetters } from 'vuex';
 import RankingModal from '../ranking/RankingForm';
@@ -41,6 +42,7 @@ const gameStats = [
 
 export default {
   name: 'active-tournament',
+  mixins: [gameExists],
   computed: { ...mapGetters({ games: 'activeGameData' }) },
   methods: {
     showDetails({ image, gameStateDescription, gameRules }) {
