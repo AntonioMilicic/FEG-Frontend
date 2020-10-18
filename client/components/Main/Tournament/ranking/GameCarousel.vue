@@ -47,7 +47,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.game-carousel { // Just for placeholder, would be done in a nicer way otherwise
+.game-carousel {
   width: 100%;
   color: var(--color-gray-light-100);
 
@@ -62,7 +62,7 @@ export default {
   .carousel-arrow {
     position: absolute;
     top: 22.5%;
-    padding: 1.5rem 0.75rem;
+    padding: var(--carousel-button-padding);
     background-color: var(--color-gray-dark-300);
   }
 
@@ -87,7 +87,7 @@ export default {
 
     .carousel-image {
       width: 100%;
-      height: 7.25rem;
+      height: var(--measure-xxxs);
     }
   }
 }

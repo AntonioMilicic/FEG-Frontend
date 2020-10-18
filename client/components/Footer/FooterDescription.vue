@@ -27,11 +27,11 @@ export default { name: 'footer-description' };
 }
 
 .icon-button {
-  width: 1.75rem;
-  height: 1.75rem;
+  width: var(--button-width-xxxs);
+  height: var(--button-height-m);
   background-color: inherit;
   border-radius: 50%;
-  border: 3px solid var(--color-gray-light-200);
+  border: solid var(--border-size-l) var(--color-gray-light-200);
   cursor: pointer;
 
   &:hover {

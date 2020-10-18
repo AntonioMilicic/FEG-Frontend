@@ -37,7 +37,7 @@ export default {
 <style lang="scss" scoped>
 .link-container {
   .link {
-    border-right: 1px solid var(--color-gray-dark-300);
+    border-right: solid var(--border-size-s) var(--color-gray-dark-300);
   }
 
   :last-child {

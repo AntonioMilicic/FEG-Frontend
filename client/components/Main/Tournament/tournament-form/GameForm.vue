@@ -57,7 +57,7 @@ export default {
 .game-form {
   width: 100%;
   max-width: var(--measure-xxl);
-  height: 25rem;
+  height: var(--measure-s);
 
   .game-image {
     width: 70%;
@@ -74,7 +74,7 @@ export default {
 
     .game-desc {
       color: var(--color-white);
-      border-bottom: 2px solid var(--color-gray-light-200);
+      border-bottom: solid var(--border-size-m) var(--color-gray-light-200);
 
       &:first-child {
         border-top-right-radius: var(--border-radius-xxs);
@@ -93,8 +93,8 @@ export default {
     }
 
     .game-button {
-      width: 10rem;
-      height: 1.75rem;
+      width: var(--button-width-m);
+      height: var(--button-height-m);
       color: var(--color-white);
 
       .icon {

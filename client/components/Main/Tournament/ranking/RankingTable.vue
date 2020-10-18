@@ -85,18 +85,18 @@ export default {
     color: var(--color-gray-light-200);
 
     th {
-      height: 2.5rem; // Koristit var
-      border-top: solid 2px var(--color-gray-light-300); // Koristit var za px
-      border-bottom: solid 2px var(--color-gray-light-300);
+      height: var(--table-height);
+      border-top: solid var(--border-size-m) var(--color-gray-light-300);
+      border-bottom: solid var(--border-size-m) var(--color-gray-light-300);
     }
 
     td {
-      height: 2.5rem;
-      border-bottom: solid 2px var(--color-gray-light-300);
+      height: var(--table-height);
+      border-bottom: solid var(--border-size-m) var(--color-gray-light-300);
     }
 
     th:first-child {
-      width: 3rem;
+      width: var(--spc-xxxl);
     }
 
     th:nth-child(2),td:nth-child(2) {
@@ -117,7 +117,7 @@ export default {
     }
 
     .medal {
-      padding: 0 0.3125rem;
+      padding: var(--medal-padding);
       border-radius: var(--border-radius-l);
       color: var(--color-black-100);
     }
@@ -141,9 +141,9 @@ export default {
     }
 
     .user {
-      padding: 0 0.3125rem; // Koristit var
+      padding: var(--medal-padding);
       border-radius: var(--border-radius-l);
-      border: 2px solid var(--color-white);
+      border: solid var(--border-size-m) var(--color-white);
     }
 
     .marked {

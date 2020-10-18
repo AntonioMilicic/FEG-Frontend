@@ -50,13 +50,15 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    color: white;
-    background-color: var(--color-gray-light-200); // Add gradient
+    color: var(--color-white);
+    background: var(--color-gray-light-200);
+    background: var(--color-gray-gradient);
     font-style: italic;
+  }
 
-    .finished {
-      background-color: red; // variable
-    }
+  .active {
+    background: var(--color-red);
+    background: var(--color-red-gradient);
   }
 
   &-image {
@@ -70,11 +72,11 @@ export default {
     width: 100%;
     height: 30%;
     color: white;
-    background-color: rgba(0, 0, 0, 0.8); // Change with variable
+    background-color: var(--color-black-transparent-08);
 
     &-button {
-      width: 6rem;
-      height: 1.5rem;
+      width: var(--button-width-s);
+      height: var(--button-height-s);
     }
   }
 }

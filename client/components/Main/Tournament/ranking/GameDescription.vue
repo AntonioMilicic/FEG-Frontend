@@ -43,7 +43,7 @@ export default {
 
   .list-item {
     color: var(--color-gray-light-100);
-    border-bottom: 2px solid var(--color-gray-light-300); // var
+    border-bottom: solid var(--border-size-m) var(--color-gray-light-300);
 
     &:last-child {
       border-bottom: none;

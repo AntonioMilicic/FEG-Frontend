@@ -4,7 +4,7 @@
       v-for="(tournamentCount, name) in status"
       :key="name"
       :name="name"
-      class="link px-l mx-xs py-xxs h1">
+      class="px-l mx-xs py-xxs h1">
       {{ name | capital }} ({{ tournamentCount }})
     </base-router-link>
   </ul>
