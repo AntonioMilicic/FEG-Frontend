@@ -2,7 +2,7 @@
   <div class="game-carousel">
     <span class="h1">Games</span>
     <div class="carousel my-s">
-      <base-button v-show="images[0].position !== 1" class="carousel-left">
+      <base-button v-show="showButtonLeft" class="carousel-left">
         <font-awesome-icon icon="chevron-left" />
       </base-button>
       <ul class="carousel-container flex-h justify-space-between">
@@ -17,7 +17,7 @@
         </li>
       </ul>
       <base-button
-        v-show="images[images.length - 1].position !== total"
+        v-show="showButtonRight"
         class="carousel-right">
         <font-awesome-icon icon="chevron-right" />
       </base-button>
@@ -32,9 +32,15 @@ import BaseButton from '@/components/shared/BaseButton';
 export default {
   name: 'game-carousel',
   mixins: [addRequireToSrc],
-  props: { // Prebaci v-if/show u computed
+  props: {
     images: { type: Array, required: true },
     total: { type: Number, required: true }
+  },
+  computed: {
+    showButtonLeft: vm => Boolean(vm.images[0].position !== 1),
+    showButtonRight: vm => Boolean(
+      vm.images[vm.images.length - 1].position !== vm.total
+    )
   },
   components: { BaseButton }
 };
