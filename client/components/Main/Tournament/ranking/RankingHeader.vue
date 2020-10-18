@@ -5,11 +5,6 @@
       :class="{finished: statusText}">
       {{ statusText }}
     </span>
-    <span
-      v-else-if="gameState === 'finished'"
-      class="image-content-top h2 px-xs mx-s my-m">
-      ENDED
-    </span>
     <img
       :src="addRequireToSrc(image)"
       alt="game-image"
