@@ -40,7 +40,12 @@ export default {
     gameStats: { type: Array, required: true },
     gameCarousel: { type: Object, required: true }
   },
-  computed: { currentRouteName: vm => vm.$route.name },
+  computed: {
+    isActive() {
+      if (this.$route.name === 'active') return true;
+      return false;
+    }
+  },
   components: {
     BaseButton,
     GameCarousel,
