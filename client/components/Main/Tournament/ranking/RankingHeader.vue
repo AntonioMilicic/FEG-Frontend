@@ -13,7 +13,7 @@
       class="image-content-bottom
         flex-h justify-space-between
         align-center px-m">
-      <span class="h1">{{ game.title }}</span>
+      <span class="h1">{{ title }}</span>
       <base-button
         v-if="isActive"
         class="image-content-bottom-button p4"
