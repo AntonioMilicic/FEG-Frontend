@@ -7,7 +7,7 @@
       </base-button>
       <ul class="carousel-container flex-h justify-space-between">
         <li
-          v-for="{ image } in gameCarousel.images"
+          v-for="{ image } in images"
           :key="image"
           class="carousel-item px-xxxs">
           <img
@@ -32,7 +32,7 @@ export default {
   name: 'game-carousel',
   mixins: [addRequireToSrc],
   props: { // Prebaci v-if/show u computed
-    images: { type: Object, required: true },
+    images: { type: Array, required: true },
     total: { type: Number, required: true }
   }
 };
