@@ -22,7 +22,6 @@ export default {
     finishedGames: ''
   }),
   methods: {
-    calculateRank: total => Math.floor(Math.random() * total),
     calculatePlayers(id) {
       const min = 1000;
       const max = 2000;
@@ -32,6 +31,7 @@ export default {
       const userRank = this.calculateRank(totalPlayers);
       return { totalPlayers, userRank };
     },
+    calculateRank: total => Math.floor(Math.random() * total),
     submitToStore(game) {
       if (game[0].type === 'active') this.submitActive(this.activeGames);
       else if (game[0].type === 'finished') this.submitFinished(this.finishedGames);
@@ -58,12 +58,10 @@ export default {
       upcoming: upcomingExists,
       finished: finishedExists
     };
-
     if (activeExists) {
       activeGames.forEach(game => { game.totalPlayers = this.calculatePlayers(); });
       this.activeGames = activeGames;
     }
-
     if (finishedExists) {
       finishedGames.forEach(game => {
         const { totalPlayers, userRank } = this.calculatePlayers(this.userId);
@@ -73,7 +71,6 @@ export default {
       });
       this.finishedGames = finishedGames;
     }
-
     if (upcomingExists) this.upcomingGames = upcomingGames;
   },
   components: { StatusList }
