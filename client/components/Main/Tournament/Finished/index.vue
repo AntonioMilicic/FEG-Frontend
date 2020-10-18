@@ -27,16 +27,54 @@
 </template>
 
 <script>
+import { getGameCarousel, getRanking } from '@/helpers/api/UserGames';
 import GameForm from '../tournament-form/GameForm';
 import { mapGetters } from 'vuex';
+import RankingModal from '../ranking/RankingForm';
 import TournamentMessage from '../message/TournamentErrorMessage';
+const gameStats = [
+  { title: 'Registration', content: 'Finished' },
+  { title: 'Position', content: '' },
+  { title: 'Registered', content: '' }
+];
 
 export default {
   name: 'active-tournament',
+  data: () => ({ userRank: 7 }), // Mocked data to show selected line
   computed: { ...mapGetters({ games: 'finishedGameData' }) },
   methods: {
-    showDetails() {
-      console.log('Show modal');
+    showDetails({ image, gameStateDescription, gameRules }) {
+      const game = {
+        title: gameStateDescription.title,
+        rules: gameRules,
+        image
+      };
+      const getRanks = getRanking;
+      getRanks[getRanks.length - 1].rank = gameStateDescription.totalPlayers;
+
+      const ranking = getRanks;
+      const gameStatsCalc = gameStats;
+      gameStatsCalc[1].content = gameStateDescription.userRank;
+      gameStatsCalc[2].content = gameStateDescription.totalPlayers;
+
+      const gameStatistic = gameStatsCalc;
+      const gameCarousel = getGameCarousel;
+
+      this.$modal.show(
+        RankingModal,
+        {
+          game,
+          ranking,
+          userRank: this.userRank,
+          gameStats: gameStatistic,
+          gameCarousel
+        },
+        {
+          height: 'auto',
+          shiftY: 0,
+          scrollable: true
+        }
+      );
     }
   },
   components: { GameForm, TournamentMessage }
