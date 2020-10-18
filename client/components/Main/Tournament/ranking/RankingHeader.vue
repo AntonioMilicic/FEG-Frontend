@@ -2,7 +2,7 @@
   <div class="image-content flex-v">
     <span
       class="image-content-top h2 px-xs mx-s my-m"
-      :class="{finished: statusText}">
+      :class="{ active: isActive }">
       {{ statusText }}
     </span>
     <img
