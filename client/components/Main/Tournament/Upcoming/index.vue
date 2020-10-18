@@ -33,10 +33,7 @@ import TournamentMessage from '../message/TournamentErrorMessage';
 export default {
   name: 'active-tournament',
   mixins: [gameExists],
-  computed: {
-    gameExists: vm => Boolean(vm.games.length),
-    ...mapGetters({ games: 'upcomingGameData' })
-  },
+  computed: { ...mapGetters({ games: 'upcomingGameData' }) },
   components: { GameForm, TournamentMessage }
 };
 </script>
