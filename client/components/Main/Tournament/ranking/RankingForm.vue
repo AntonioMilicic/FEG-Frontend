@@ -58,7 +58,7 @@ export default {
 
 <style lang="scss" scoped>
 .ranking-form {
-  width: 40%;
+  width: 100%;
   min-width: var(--measure-m);
   max-width: var(--measure-l);
   background-color: var(--color-gray-dark-100);
