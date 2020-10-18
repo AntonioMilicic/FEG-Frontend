@@ -63,21 +63,19 @@ export const getGames = {
   ]
 };
 
-export const getRanking = {
-  players: [
-    { rank: 1, username: 'Tonitest1', score: 1000, prize: 1000 },
-    { rank: 2, username: 'Tonitest2', score: 1000, prize: 1000 },
-    { rank: 3, username: 'Tonitest3', score: 1000, prize: 1000 },
-    { rank: 4, username: 'Tonitest4', score: 1000, prize: 1000 },
-    { rank: 5, username: 'Tonitest5', score: 1000, prize: 1000 },
-    { rank: 6, username: 'Tonitest6', score: 1000, prize: 1000 },
-    { rank: 7, username: 'Tonitest7', score: 1000, prize: 1000 },
-    { rank: 8, username: 'Tonitest8', score: 1000, prize: 1000 },
-    { rank: '', username: 'Tonitest9', score: 0, prize: '-' } // rank of the last player is calculated with random in each game
-  ]
-};
+export const getRanking = [
+  { rank: 1, username: 'Tonitest1', score: 1000, prize: 1000 },
+  { rank: 2, username: 'Tonitest2', score: 1000, prize: 1000 },
+  { rank: 3, username: 'Tonitest3', score: 1000, prize: 1000 },
+  { rank: 4, username: 'Tonitest4', score: 1000, prize: 1000 },
+  { rank: 5, username: 'Tonitest5', score: 1000, prize: 1000 },
+  { rank: 6, username: 'Tonitest6', score: 1000, prize: 1000 },
+  { rank: 7, username: 'Tonitest7', score: 1000, prize: 1000 },
+  { rank: 8, username: 'Tonitest8', score: 1000, prize: 1000 },
+  { rank: '', username: 'Tonitest9', score: 0, prize: '-' } // rank of the last player is calculated with random in each game
+];
 
-export const gameCarousel = {
+export const getGameCarousel = {
   images: [
     { image: 'games/small/game-1.png', position: 1 },
     { image: 'games/small/game-2.jpg', position: 2 },
