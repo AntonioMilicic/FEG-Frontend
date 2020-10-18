@@ -6,7 +6,7 @@
     </div>
     <ul class="game-stats flex-v justify-center">
       <li
-        v-for="{ title, content } in gameStateDescription"
+        v-for="{ title, content } in gameStats"
         :key="title"
         class="list-item flex-v py-xxs">
         <span class="p1">{{ title }}</span>
@@ -21,7 +21,7 @@ export default {
   name: 'game-description',
   props: {
     rules: { type: String, default: 'There are no available rules' },
-    gameStats: { type: Object, required: true }
+    gameStats: { type: Array, required: true }
   }
 };
 </script>
