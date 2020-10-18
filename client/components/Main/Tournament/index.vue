@@ -27,6 +27,8 @@ export default {
   methods: {
     calculateRank: total => Math.floor(Math.random() * total),
     calculatePlayers(id) {
+      const min = 1000;
+      const max = 2000;
       const totalPlayers = Math.floor(Math.random() * (max - min + 1)) + min;
       if (!id) return totalPlayers;
 
