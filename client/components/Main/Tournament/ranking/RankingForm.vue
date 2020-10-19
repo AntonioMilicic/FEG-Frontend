@@ -1,20 +1,17 @@
 <template>
   <div class="ranking-form pb-l">
     <ranking-header
+      @register-dialog="registerDialog"
+      :player-id="game.playerId"
       :image="game.image"
       :title="game.title"
       :is-active="isActive" />
     <div class="ranking-wrapper mx-s">
       <ranking-table :ranking="ranking" :user-rank="userRank" />
-      <base-card
-        :detail="true"
+      <game-description
+        :rules="game.rules"
         :content-list="contentList"
-        :title-list="titleList">
-        <template #left>
-          <span class="game-rules h2">Pravila turnira</span>
-          <p class="game-rules p1 pt-xs pr-s">{{ game.rules }}</p>
-        </template>
-      </base-card>
+        :title-list="titleList" />
       <game-carousel
         :images="gameCarousel.images"
         :total="gameCarousel.total" />
@@ -25,14 +22,14 @@
         Terms and conditions
       </base-button>
     </div>
+    <v-dialog />
   </div>
 </template>
 
 <script>
 import BaseButton from '@/components/shared/BaseButton';
-import BaseCard from '@/components/shared/BaseCard';
 import GameCarousel from './GameCarousel';
-// import GameDescription from './GameDescription';
+import GameDescription from './GameDescription';
 import RankingHeader from './RankingHeader';
 import RankingTable from './RankingTable';
 
@@ -52,13 +49,38 @@ export default {
       return false;
     }
   },
+  methods: {
+    registerDialog() {
+      this.$modal.show('dialog', {
+        title: 'Please confirm your registration',
+        text: 'To enter the tournament, you have to confirm your application.',
+        buttons: [
+          {
+            title: 'Confirm',
+            handler: () => {
+              const submittedId = Math.floor((Math.random() * 10000) + 1);
+              this.$store.dispatch('submitPlayerId',
+                { activeGameId: this.game.id, playerId: submittedId });
+              this.game.playerId = submittedId;
+              this.$modal.hide('dialog');
+            }
+          },
+          {
+            title: 'Cancel',
+            handler: () => {
+              this.$modal.hide('dialog');
+            }
+          }
+        ]
+      });
+    }
+  },
   components: {
     BaseButton,
-    BaseCard,
     GameCarousel,
-    // GameDescription,
     RankingHeader,
-    RankingTable
+    RankingTable,
+    GameDescription
   }
 };
 </script>
