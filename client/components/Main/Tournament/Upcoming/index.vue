@@ -1,32 +1,24 @@
 <template>
   <div v-if="gameExists" class="flex-v align-center">
-    <base-card
-      v-for="{ id, begins, registerBegins, players, image, title } in games"
-      :key="id"
-      :title="title"
+    <tournament-card
+      v-for="game in games"
+      :key="game.id"
+      :show-buttons="false"
       :title-list="titleList"
+      :game="game"
       :content-list="{
-        begins,
-        registerBegins,
-        players
-      }">
-      <template #left>
-        <img
-          :src="addRequireToSrc(image)"
-          alt="game-image"
-          href="#"
-          class="game-image">
-      </template>
-    </base-card>
+        begins: game.begins,
+        registerBegins: game.registerBegins,
+        totalPlayers: game.players
+      }" />
   </div>
   <tournament-message v-else message="upcoming" />
 </template>
 
 <script>
-import { addRequireToSrc } from '@/helpers/mixins/AddRequireMixin';
-import BaseCard from '@/components/shared/BaseCard';
 import { gameExists } from '@/helpers/mixins/BooleanMixin';
 import { mapGetters } from 'vuex';
+import TournamentCard from '../card/TournamentCard';
 import TournamentMessage from '../message/TournamentErrorMessage';
 
 const titleList = [
@@ -37,11 +29,11 @@ const titleList = [
 
 export default {
   name: 'active-tournament',
-  mixins: [addRequireToSrc, gameExists],
+  mixins: [gameExists],
   computed: { ...mapGetters({ games: 'upcomingGameData' }) },
   created() {
     this.titleList = titleList;
   },
-  components: { BaseCard, TournamentMessage }
+  components: { TournamentMessage, TournamentCard }
 };
 </script>

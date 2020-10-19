@@ -15,7 +15,7 @@ library.add(faCaretDown, faCheck, faChevronLeft, faChevronRight,
   faEye, faFacebookF, faHome, faSearch, faWallet, faTrophy);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
-Vue.use(VModal);
+Vue.use(VModal, { dialog: true });
 
 Vue.config.productionTip = false;
 

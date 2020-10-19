@@ -15,7 +15,8 @@
         align-center px-m">
       <span class="h1">{{ title }}</span>
       <base-button
-        v-if="isActive"
+        v-if="isActive && !playerId"
+        @click="$emit('register-dialog')"
         class="image-content-bottom-button p4"
         color="secondary">
         REGISTER
@@ -34,7 +35,8 @@ export default {
   props: {
     isActive: { type: Boolean, default: true },
     image: { type: String, required: true },
-    title: { type: String, default: 'Game title' }
+    title: { type: String, default: 'Game title' },
+    playerId: { type: Number, default: null }
   },
   computed: { statusText: vm => vm.isActive ? 'ACTIVE' : 'FINISHED' },
   components: { BaseButton }
@@ -71,7 +73,7 @@ export default {
     bottom: 0;
     width: 100%;
     height: 30%;
-    color: white;
+    color: var(--color-white);
     background-color: var(--color-black-transparent-08);
 
     &-button {

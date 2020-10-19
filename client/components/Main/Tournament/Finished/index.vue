@@ -1,51 +1,26 @@
 <template>
   <div v-if="gameExists" class="flex-v align-center">
-    <base-card
-      v-for="{ id, image, rules, title, registration, userRank, totalPlayers } in games"
-      :key="id"
-      :title="title"
-      :image="image"
-      :rules="rules"
+    <tournament-card
+      v-for="game in games"
+      :key="game.id"
+      @show-details="showDetails"
       :title-list="titleList"
+      :game="game"
       :content-list="{
-        registration,
-        userRank,
-        totalPlayers
-      }">
-      <template #left>
-        <img
-          :src="addRequireToSrc(image)"
-          alt="game-image"
-          href="#"
-          class="game-image">
-      </template>
-      <template #listEnd>
-        <base-button
-          @click="showDetails({
-            image, title, rules, listData: { registration, userRank, totalPlayers }
-          })"
-          color="gray"
-          class="game-button mx-xs p4">
-          DETAILS
-        </base-button>
-        <div class="game-button mx-xs p4">
-          <font-awesome-icon icon="check" size="lg" class="icon" />
-          <span class="ml-xxs">Logged in</span>
-        </div>
-      </template>
-    </base-card>
+        registration: game.registration,
+        userRank: game.userRank,
+        totalPlayers: game.totalPlayers
+      }" />
   </div>
   <tournament-message v-else message="finished" />
 </template>
 
 <script>
 import { getGameCarousel, getRanking } from '@/helpers/api/UserGames';
-import { addRequireToSrc } from '@/helpers/mixins/AddRequireMixin';
-import BaseButton from '@/components/shared/BaseButton';
-import BaseCard from '@/components/shared/BaseCard';
 import { gameExists } from '@/helpers/mixins/BooleanMixin';
 import { mapGetters } from 'vuex';
 import RankingModal from '../ranking/RankingForm';
+import TournamentCard from '../card/TournamentCard';
 import TournamentMessage from '../message/TournamentErrorMessage';
 
 const titleList = [
@@ -56,7 +31,7 @@ const titleList = [
 
 export default {
   name: 'active-tournament',
-  mixins: [gameExists, addRequireToSrc],
+  mixins: [gameExists],
   computed: { ...mapGetters({ games: 'finishedGameData' }) },
   methods: {
     showDetails({ image, title, rules, listData }) {
@@ -89,6 +64,6 @@ export default {
     }
   },
   created() { this.titleList = titleList; },
-  components: { BaseButton, BaseCard, TournamentMessage }
+  components: { TournamentCard, TournamentMessage }
 };
 </script>
