@@ -1,19 +1,38 @@
 export const getGames = {
-  activeGames: [{
-    id: 1,
-    type: 'active',
-    image: 'games/large/game-1.jpg',
-    title: 'Spinmaster',
-    rules: `Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+  activeGames: [
+    {
+      id: 1,
+      playerId: null,
+      type: 'active',
+      image: 'games/large/game-1.jpg',
+      title: 'Spinmaster',
+      rules: `Lorem ipsum dolor sit amet, consectetur adipiscing elit,
     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
     ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
     esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
     sunt in culpa qui officia deserunt mollit anim id est laborum.`,
-    tournamentEnds: '9h 50m',
-    registerEnds: '9h 49m',
-    totalPlayers: '' // calculated with random (it would have been sent from server as well)
-  }],
+      tournamentEnds: '9h 50m',
+      registerEnds: '9h 49m',
+      totalPlayers: '' // calculated with random (it would have been sent from server as well)
+    },
+    {
+      id: 2,
+      playerId: null,
+      type: 'active',
+      image: 'games/large/game-3.png',
+      title: 'Spinmaster',
+      rules: `Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+    sunt in culpa qui officia deserunt mollit anim id est laborum.`,
+      tournamentEnds: '9h 20m',
+      registerEnds: '9h 19m',
+      totalPlayers: ''
+    }
+  ],
   upcomingGames: [{ // Don't have this view so I'll just send some data there for now
     id: 1,
     type: 'upcoming',
@@ -32,6 +51,7 @@ export const getGames = {
   finishedGames: [
     {
       id: 1,
+      playerId: 9999,
       type: 'finished',
       image: 'games/large/game-1.jpg',
       title: 'Spinmaster',
@@ -47,6 +67,7 @@ export const getGames = {
     },
     {
       id: 2,
+      playerId: 9999,
       type: 'finished',
       image: 'games/large/game-2.jpg',
       title: 'Spinmaster',
