@@ -1,39 +1,47 @@
 <template>
   <div v-if="gameExists" class="flex-v align-center">
-    <game-form
-      v-for="game in games"
-      :key="game.id"
-      :image="game.image"
-      :game-state-description="{
-        title: game.title,
-        gameBegins: game.begins,
-        registerBegins: game.registerBegins,
-        players: game.players
+    <base-card
+      v-for="{ id, begins, registerBegins, players, image, title } in games"
+      :key="id"
+      :title="title"
+      :title-list="titleList"
+      :content-list="{
+        begins,
+        registerBegins,
+        players
       }">
-      <template #row1>
-        <span class="p1">Game begins</span>
+      <template #left>
+        <img
+          :src="addRequireToSrc(image)"
+          alt="game-image"
+          href="#"
+          class="game-image">
       </template>
-      <template #row2>
-        <span class="p1">Registration begins</span>
-      </template>
-      <template #row3>
-        <span class="p1">Players</span>
-      </template>
-    </game-form>
+    </base-card>
   </div>
   <tournament-message v-else message="upcoming" />
 </template>
 
 <script>
+import { addRequireToSrc } from '@/helpers/mixins/AddRequireMixin';
+import BaseCard from '@/components/shared/BaseCard';
 import { gameExists } from '@/helpers/mixins/BooleanMixin';
-import GameForm from '../tournament-form/GameForm';
 import { mapGetters } from 'vuex';
 import TournamentMessage from '../message/TournamentErrorMessage';
 
+const titleList = [
+  'Game begins',
+  'Registration begins',
+  'Players'
+];
+
 export default {
   name: 'active-tournament',
-  mixins: [gameExists],
+  mixins: [addRequireToSrc, gameExists],
   computed: { ...mapGetters({ games: 'upcomingGameData' }) },
-  components: { GameForm, TournamentMessage }
+  created() {
+    this.titleList = titleList;
+  },
+  components: { BaseCard, TournamentMessage }
 };
 </script>

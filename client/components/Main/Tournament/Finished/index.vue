@@ -1,74 +1,83 @@
 <template>
   <div v-if="gameExists" class="flex-v align-center">
-    <game-form
-      v-for="game in games"
-      :key="game.id"
-      @show-details="showDetails"
-      :image="game.image"
-      :game-rules="game.rules"
-      :game-state-description="{
-        title: game.title,
-        registration: game.registration,
-        userRank: game.userRank,
-        totalPlayers: game.totalPlayers
+    <base-card
+      v-for="{ id, image, rules, title, registration, userRank, totalPlayers } in games"
+      :key="id"
+      :title="title"
+      :image="image"
+      :rules="rules"
+      :title-list="titleList"
+      :content-list="{
+        registration,
+        userRank,
+        totalPlayers
       }">
-      <template #row1>
-        <span class="p1">Registration</span>
+      <template #left>
+        <img
+          :src="addRequireToSrc(image)"
+          alt="game-image"
+          href="#"
+          class="game-image">
       </template>
-      <template #row2>
-        <span class="p1">Your position</span>
+      <template #listEnd>
+        <base-button
+          @click="showDetails({
+            image, title, rules, listData: { registration, userRank, totalPlayers }
+          })"
+          color="gray"
+          class="game-button mx-xs p4">
+          DETAILS
+        </base-button>
+        <div class="game-button mx-xs p4">
+          <font-awesome-icon icon="check" size="lg" class="icon" />
+          <span class="ml-xxs">Logged in</span>
+        </div>
       </template>
-      <template #row3>
-        <span class="p1">Registered</span>
-      </template>
-    </game-form>
+    </base-card>
   </div>
   <tournament-message v-else message="finished" />
 </template>
 
 <script>
 import { getGameCarousel, getRanking } from '@/helpers/api/UserGames';
+import { addRequireToSrc } from '@/helpers/mixins/AddRequireMixin';
+import BaseButton from '@/components/shared/BaseButton';
+import BaseCard from '@/components/shared/BaseCard';
 import { gameExists } from '@/helpers/mixins/BooleanMixin';
-import GameForm from '../tournament-form/GameForm';
 import { mapGetters } from 'vuex';
 import RankingModal from '../ranking/RankingForm';
 import TournamentMessage from '../message/TournamentErrorMessage';
-const gameStats = [
-  { title: 'Registration', content: 'Finished' },
-  { title: 'Position', content: '' },
-  { title: 'Registered', content: '' }
+
+const titleList = [
+  'Registration',
+  'Your position',
+  'Registered'
 ];
 
 export default {
   name: 'active-tournament',
-  mixins: [gameExists],
-  data: () => ({ userRank: 7 }), // Mocked data to show selected line
+  mixins: [gameExists, addRequireToSrc],
   computed: { ...mapGetters({ games: 'finishedGameData' }) },
   methods: {
-    showDetails({ image, gameStateDescription, gameRules }) {
+    showDetails({ image, title, rules, listData }) {
       const game = {
-        title: gameStateDescription.title,
-        rules: gameRules,
+        title,
+        rules,
         image
       };
-      const getRanks = getRanking;
-      getRanks[getRanks.length - 1].rank = gameStateDescription.totalPlayers;
-
-      const ranking = getRanks;
-      const gameStatsCalc = gameStats;
-      gameStatsCalc[1].content = gameStateDescription.userRank;
-      gameStatsCalc[2].content = gameStateDescription.totalPlayers;
-
-      const gameStatistic = gameStatsCalc;
+      const ranking = getRanking;
+      ranking[ranking.length - 1].rank = listData.totalPlayers;
       const gameCarousel = getGameCarousel;
+      const contentList = listData;
 
       this.$modal.show(
         RankingModal,
         {
           game,
           ranking,
-          userRank: this.userRank,
-          gameStats: gameStatistic,
+          userRank: 7, // Mocked data to show selected
+          contentList,
+          titleList,
           gameCarousel
         },
         {
@@ -79,6 +88,7 @@ export default {
       );
     }
   },
-  components: { GameForm, TournamentMessage }
+  created() { this.titleList = titleList; },
+  components: { BaseButton, BaseCard, TournamentMessage }
 };
 </script>
