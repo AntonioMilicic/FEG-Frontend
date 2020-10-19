@@ -1,37 +1,47 @@
 <template>
-  <div v-if="games.length" class="flex-v align-center">
-    <game-form
-      v-for="game in games"
-      :key="game.id"
-      :image="game.image"
-      :description="{
-        title: game.title,
-        gameBegins: game.begins,
-        registerBegins: game.registerBegins,
-        players: game.players
+  <div v-if="gameExists" class="flex-v align-center">
+    <base-card
+      v-for="{ id, begins, registerBegins, players, image, title } in games"
+      :key="id"
+      :title="title"
+      :title-list="titleList"
+      :content-list="{
+        begins,
+        registerBegins,
+        players
       }">
-      <template #row1>
-        <span class="h4">Game begins</span>
+      <template #left>
+        <img
+          :src="addRequireToSrc(image)"
+          alt="game-image"
+          href="#"
+          class="game-image">
       </template>
-      <template #row2>
-        <span class="h4">Registration begins</span>
-      </template>
-      <template #row3>
-        <span class="h4">Players</span>
-      </template>
-    </game-form>
+    </base-card>
   </div>
-  <base-tournament-message v-else message="upcoming" />
+  <tournament-message v-else message="upcoming" />
 </template>
 
 <script>
-import BaseTournamentMessage from '@/components/shared/BaseTournamentMessage';
-import GameForm from '@/components/shared/GameForm';
+import { addRequireToSrc } from '@/helpers/mixins/AddRequireMixin';
+import BaseCard from '@/components/shared/BaseCard';
+import { gameExists } from '@/helpers/mixins/BooleanMixin';
 import { mapGetters } from 'vuex';
+import TournamentMessage from '../message/TournamentErrorMessage';
+
+const titleList = [
+  'Game begins',
+  'Registration begins',
+  'Players'
+];
 
 export default {
   name: 'active-tournament',
+  mixins: [addRequireToSrc, gameExists],
   computed: { ...mapGetters({ games: 'upcomingGameData' }) },
-  components: { BaseTournamentMessage, GameForm }
+  created() {
+    this.titleList = titleList;
+  },
+  components: { BaseCard, TournamentMessage }
 };
 </script>

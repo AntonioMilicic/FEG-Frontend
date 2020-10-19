@@ -24,12 +24,12 @@ export default {
 
 <style lang="scss" scoped>
 .logo-container {
-  border-top: 2px solid var(--color-black-100);
-  border-bottom: 2px solid var(--color-black-100);
+  border-top: solid var(--border-size-m) var(--color-black-100);
+  border-bottom: solid var(--border-size-m) var(--color-black-100);
 
   .logo-link {
-    width: 6rem;
-    height: 3rem;
+    width: var(--logo-width);
+    height: var(--logo-height);
 
     .logo {
       width: 100%;

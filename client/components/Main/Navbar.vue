@@ -39,7 +39,7 @@ const tabs = [
 
 export default {
   name: 'main-navbar',
-  data: () => ({ tabs }),
+  created() { this.tabs = tabs; },
   components: { BaseNavbar, BaseRouterLink }
 };
 </script>
@@ -64,8 +64,8 @@ export default {
 }
 
 .search {
-  width: 15rem;
-  height: 2rem;
+  width: var(--input-width-m);
+  height: var(--input-height-m);
   background-color: var(--color-gray-dark-300);
   border-radius: var(--border-radius-xxxs);
 

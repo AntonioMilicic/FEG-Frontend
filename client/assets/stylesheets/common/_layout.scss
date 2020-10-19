@@ -64,11 +64,16 @@ $spacings: (
     }
   }
 
-  --header-height: 5rem;
-  --nav-height: 2.625rem;
-  --z-background: -1;
-  --z-content: 1;
-  --z-navbar: 10;
+  --border-size-s: 0.0625rem;
+  --border-size-m: 0.125rem;
+  --border-size-l: 0.1875rem;
+  --button-width-xxxs: 1.75rem;
+  --button-width-s: 6rem;
+  --button-width-m: 10rem;
+  --button-height-s: 1.5rem;
+  --button-height-m: 1.75rem;
+  --input-width-m: 15rem;
+  --input-height-m: 2rem;
   --border-radius-xxxs: 0.125rem;
   --border-radius-xxs: 0.375rem;
   --border-radius-l: 10rem;

@@ -24,14 +24,13 @@ export default {
 
 <style lang="scss" scoped>
 .button {
-  color: white;
+  color: var(--color-white);
   border: none;
   border-radius: var(--border-radius-xxxs);
   cursor: pointer;
 
   &.inherit {
     background-color: inherit;
-    cursor: initial;
   }
 
   &.secondary {

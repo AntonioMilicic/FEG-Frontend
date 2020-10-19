@@ -12,9 +12,6 @@ import { getGames } from '@/helpers/api/UserGames';
 import { mapActions } from 'vuex';
 import StatusList from './StatusList';
 
-const max = 2000;
-const min = 1000;
-
 export default {
   name: 'tournament-view',
   data: () => ({
@@ -25,14 +22,16 @@ export default {
     finishedGames: ''
   }),
   methods: {
-    calculateRank: total => Math.floor(Math.random() * total),
     calculatePlayers(id) {
+      const min = 1000;
+      const max = 2000;
       const totalPlayers = Math.floor(Math.random() * (max - min + 1)) + min;
       if (!id) return totalPlayers;
 
       const userRank = this.calculateRank(totalPlayers);
       return { totalPlayers, userRank };
     },
+    calculateRank: total => Math.floor(Math.random() * total),
     submitToStore(game) {
       if (game[0].type === 'active') this.submitActive(this.activeGames);
       else if (game[0].type === 'finished') this.submitFinished(this.finishedGames);
@@ -56,15 +55,13 @@ export default {
     const upcomingExists = upcomingGames.length;
     this.status = {
       active: activeExists,
-      finished: finishedExists,
-      upcoming: upcomingExists
+      upcoming: upcomingExists,
+      finished: finishedExists
     };
-
     if (activeExists) {
       activeGames.forEach(game => { game.totalPlayers = this.calculatePlayers(); });
       this.activeGames = activeGames;
     }
-
     if (finishedExists) {
       finishedGames.forEach(game => {
         const { totalPlayers, userRank } = this.calculatePlayers(this.userId);
@@ -74,7 +71,6 @@ export default {
       });
       this.finishedGames = finishedGames;
     }
-
     if (upcomingExists) this.upcomingGames = upcomingGames;
   },
   components: { StatusList }

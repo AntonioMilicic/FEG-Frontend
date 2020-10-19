@@ -22,6 +22,6 @@ export default {
 
 .router-link-active {
   color: var(--color-accent);
-  border-bottom: 2px solid var(--color-accent);
+  border-bottom: solid var(--border-size-m) var(--color-accent);
 }
 </style>
