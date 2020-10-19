@@ -1,52 +1,28 @@
 <template>
   <div v-if="gameExists" class="flex-v align-center">
-    <base-card
-      v-for="{ id, image, rules, title, tournamentEnds, registerEnds, totalPlayers } in games"
-      :key="id"
-      :image="image"
-      :rules="rules"
-      :title="title"
+    <tournament-card
+      v-for="game in games"
+      :key="game.id"
+      @register-dialog="registerDialog"
+      @show-details="showDetails"
       :title-list="titleList"
+      :game="game"
       :content-list="{
-        tournamentEnds,
-        registerEnds,
-        totalPlayers
-      }">
-      <template #left>
-        <img
-          :src="addRequireToSrc(image)"
-          alt="game-image"
-          href="#"
-          class="game-image">
-      </template>
-      <template #listEnd>
-        <base-button
-          @click="showDetails({
-            image, title, rules, listData: { tournamentEnds, registerEnds, totalPlayers }
-          })"
-          color="gray"
-          class="game-button mx-xs p4">
-          DETAILS
-        </base-button>
-        <base-button
-          color="secondary"
-          class="game-button mx-xs p4">
-          REGISTER
-        </base-button>
-      </template>
-    </base-card>
+        tournamentEnds: game.tournamentEnds,
+        registerEnds: game.registerEnds,
+        totalPlayers: game.totalPlayers
+      }" />
+    <v-dialog />
   </div>
   <tournament-message v-else message="active" />
 </template>
 
 <script>
 import { getGameCarousel, getRanking } from '@/helpers/api/UserGames';
-import { addRequireToSrc } from '@/helpers/mixins/AddRequireMixin';
-import BaseButton from '@/components/shared/BaseButton';
-import BaseCard from '@/components/shared/BaseCard';
 import { gameExists } from '@/helpers/mixins/BooleanMixin';
 import { mapGetters } from 'vuex';
 import RankingModal from '../ranking/RankingForm';
+import TournamentCard from '../card/TournamentCard';
 import TournamentMessage from '../message/TournamentErrorMessage';
 
 const titleList = [
@@ -55,24 +31,60 @@ const titleList = [
   'Players'
 ];
 
+const detailTitleList = [
+  'Tournament ends',
+  'Registration ends',
+  'Players',
+  'Included games'
+];
+
 export default {
   name: 'active-tournament',
-  mixins: [gameExists, addRequireToSrc],
+  mixins: [gameExists],
   computed: { ...mapGetters({ games: 'activeGameData' }) },
   methods: {
-    showDetails({ image, title, rules, listData }) {
+    registerDialog(id) {
+      this.$modal.show('dialog', {
+        title: 'Please confirm your registration',
+        text: 'To enter the tournament, you have to confirm your application.',
+        buttons: [
+          {
+            title: 'Confirm',
+            handler: () => {
+              const submittedId = Math.floor((Math.random() * 10000) + 1);
+              this.$store.dispatch('submitPlayerId',
+                { activeGameId: id, playerId: submittedId });
+              this.$modal.hide('dialog');
+            }
+          },
+          {
+            title: 'Cancel',
+            handler: () => {
+              this.$modal.hide('dialog');
+            }
+          }
+        ]
+      });
+    },
+    showDetails(data) {
+      const {
+        playerId, id, image, title, rules,
+        listData: { tournamentEnds, registerEnds, totalPlayers }
+      } = data;
       const game = {
+        playerId,
+        id,
         title,
         rules,
         image
       };
       const ranking = getRanking;
-      ranking[ranking.length - 1].rank = listData.totalPlayers;
+      ranking[ranking.length - 1].rank = totalPlayers;
       const gameCarousel = getGameCarousel;
-      const contentList = listData;
+      const contentList = { tournamentEnds, registerEnds, totalPlayers };
       contentList.total = getGameCarousel.total;
-      const titleList = this.titleList;
-      titleList.push('Included games');
+      const titleList = detailTitleList;
+
       this.$modal.show(
         RankingModal,
         {
@@ -91,6 +103,6 @@ export default {
     }
   },
   created() { this.titleList = titleList; },
-  components: { BaseButton, BaseCard, TournamentMessage }
+  components: { TournamentCard, TournamentMessage }
 };
 </script>
