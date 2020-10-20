@@ -152,4 +152,22 @@ export default {
     }
   }
 }
+
+@media (max-width: 31.25rem) {
+  .ranking-table {
+    background-color: var(--color-gray-dark-300);
+
+    .table-content {
+      &-table {
+        th:nth-child(3),td:nth-child(3) {
+          padding-right: 8%;
+        }
+
+        th:last-child,td:last-child {
+          padding-left: 0;
+        }
+      }
+    }
+  }
+}
 </style>

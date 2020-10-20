@@ -88,8 +88,6 @@ export default {
 <style lang="scss" scoped>
 .ranking-form {
   width: 100%;
-  min-width: var(--measure-m);
-  max-width: var(--measure-l);
   background-color: var(--color-gray-dark-100);
 
   .rule-title {
@@ -98,6 +96,20 @@ export default {
 
   .terms-button {
     color: var(--color-gray-light-100);
+  }
+}
+
+@media (max-width: 47.5rem) {
+  .ranking-form {
+    background-color: var(--color-gray-dark-100);
+
+    .ranking-wrapper {
+      margin: 0;
+
+      .terms-button {
+        padding-left: var(--spc-xs);
+      }
+    }
   }
 }
 </style>

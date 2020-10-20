@@ -1,6 +1,6 @@
 import {
   faCaretDown, faCheck, faChevronLeft, faChevronRight,
-  faEye, faHome, faSearch, faTrophy, faWallet
+  faEye, faHome, faSearch, faTrophy, faUser, faWallet
 } from '@fortawesome/free-solid-svg-icons';
 import App from './App.vue';
 import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
@@ -12,7 +12,7 @@ import VModal from 'vue-js-modal';
 import Vue from 'vue';
 
 library.add(faCaretDown, faCheck, faChevronLeft, faChevronRight,
-  faEye, faFacebookF, faHome, faSearch, faWallet, faTrophy);
+  faEye, faFacebookF, faHome, faSearch, faWallet, faTrophy, faUser);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 Vue.use(VModal, { dialog: true });

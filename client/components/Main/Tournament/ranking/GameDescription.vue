@@ -1,5 +1,5 @@
 <template>
-  <div class="game-description flex-h justify-space-between py-m">
+  <div class="game-description flex-h justify-space-between my-m">
     <div class="game-rules mr-s">
       <span class="mb-xs h2">Pravila turnira</span>
       <p class="p1 mt-xs">{{ rules }}</p>
@@ -9,8 +9,8 @@
         v-for="(content, _, index) in contentList"
         :key="content"
         class="list-item flex-v py-xxs">
-        <span class="p1">{{ titleList[index] }}</span>
-        <span class="h3">{{ content }}</span>
+        <div class="left-text p1">{{ titleList[index] }}</div>
+        <div class="right-text h3">{{ content }}</div>
       </li>
     </ul>
   </div>
@@ -48,6 +48,42 @@ export default {
 
     &:last-child {
       border-bottom: none;
+    }
+  }
+}
+
+@media (max-width: 47.5rem) {
+  .game-description {
+    flex-direction: column-reverse;
+    background-color: var(--color-gray-dark-300);
+
+    .game-rules {
+      width: 100%;
+      padding: var(--spc-m) var(--spc-xs) 0 var(--spc-xs);
+      background-color: var(--color-gray-dark-100);
+    }
+
+    .game-stats {
+      width: 100%;
+      border-radius: 0;
+
+      .list-item {
+        flex-direction: row;
+        align-items: center;
+        padding: 0.25rem 1.25rem;
+
+        .right-text {
+          margin-left: auto;
+        }
+
+        .left-text {
+          margin-right: auto;
+        }
+
+        &:last-child {
+          border-bottom: solid var(--border-size-m) var(--color-gray-light-300);
+        }
+      }
     }
   }
 }

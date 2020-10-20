@@ -91,7 +91,49 @@ export default {
     &-button {
       width: var(--button-width-s);
       height: var(--button-height-s);
+
+      .icon {
+        color: var(--color-accent);
+      }
     }
+  }
+}
+
+.details-button {
+  display: none;
+}
+
+@media (max-width: 47.5rem) {
+  .image-content {
+    &-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+      height: auto;
+      padding: 0 var(--spc-s);
+      background-color: var(--color-black-200);
+
+      .header-title {
+        margin-top: var(--spc-xs);
+        padding: var(--spc-xxs) 0;
+      }
+
+      &-button {
+        width: -webkit-fill-available;
+        width: -moz-available;
+        height: var(--button-height-m);
+        margin: var(--spc-xs) var(--spc-xs);
+      }
+    }
+  }
+
+  .button-wrapper {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+  }
+
+  .details-button {
+    display: block;
   }
 }
 </style>

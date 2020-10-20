@@ -43,6 +43,11 @@ export default {
   mixins: [gameExists],
   computed: { ...mapGetters({ games: 'activeGameData' }) },
   methods: {
+    submitIdHandler(id) {
+      const submittedId = Math.floor((Math.random() * 10000) + 1);
+      this.$store.dispatch('submitPlayerId',
+        { activeGameId: id, playerId: submittedId });
+    },
     registerDialog(id) {
       this.$modal.show('dialog', {
         title: 'Please confirm your registration',
@@ -51,9 +56,7 @@ export default {
           {
             title: 'Confirm',
             handler: () => {
-              const submittedId = Math.floor((Math.random() * 10000) + 1);
-              this.$store.dispatch('submitPlayerId',
-                { activeGameId: id, playerId: submittedId });
+              this.submitIdHandler(id);
               this.$modal.hide('dialog');
             }
           },

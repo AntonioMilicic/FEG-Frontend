@@ -40,4 +40,11 @@ export default {
     color: var(--color-accent);
   }
 }
+
+@media (max-width: 47.5rem) {
+  .game-button {
+    width: -webkit-fill-available;
+    width: -moz-available;
+  }
+}
 </style>

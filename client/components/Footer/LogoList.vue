@@ -37,4 +37,10 @@ export default {
     }
   }
 }
+
+@media (max-width: 67.5rem) {
+  .logo-container {
+    display: none;
+  }
+}
 </style>

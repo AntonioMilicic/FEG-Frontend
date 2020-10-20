@@ -1,6 +1,6 @@
 <template>
   <div class="game-carousel">
-    <span class="h1">Games</span>
+    <span class="game-title h1">Games</span>
     <div class="carousel my-s">
       <base-button v-show="showButtonLeft" class="carousel-left">
         <font-awesome-icon icon="chevron-left" />
@@ -89,6 +89,16 @@ export default {
       width: 100%;
       height: var(--measure-xxxs);
     }
+  }
+}
+
+@media (max-width: 47.5rem) {
+  .game-title {
+    padding-left: var(--spc-xs);
+  }
+
+  .carousel-container {
+    padding: 0 var(--spc-xxs);
   }
 }
 </style>
