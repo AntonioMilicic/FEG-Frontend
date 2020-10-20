@@ -85,6 +85,10 @@ export default {
       contentList.total = getGameCarousel.total;
       const titleList = detailTitleList;
 
+      let width = window.screen.width;
+      if (window.screen.width === 768) width = 500;
+      if (window.screen.width > 768) width = 600;
+
       this.$modal.show(
         RankingModal,
         {
@@ -95,7 +99,10 @@ export default {
           titleList
         },
         {
+          name: 'tournament',
           height: 'auto',
+          width,
+          delay: '100',
           shiftY: 0,
           scrollable: true
         }

@@ -13,14 +13,26 @@
       class="image-content-bottom
         flex-h justify-space-between
         align-center px-m">
-      <span class="h1">{{ title }}</span>
-      <base-button
-        v-if="isActive && !playerId"
-        @click="$emit('register-dialog')"
-        class="image-content-bottom-button p4"
-        color="secondary">
-        REGISTER
-      </base-button>
+      <div class="header-title h1">{{ title }}</div>
+      <div class="button-wrapper">
+        <base-button
+          v-if="isActive && !playerId"
+          @click="$emit('register-dialog')"
+          class="image-content-bottom-button p4"
+          color="secondary">
+          REGISTER
+        </base-button>
+        <div v-else class="image-content-bottom-button p4">
+          <font-awesome-icon icon="check" size="lg" class="icon" />
+          <span class="ml-xxs">Logged in</span>
+        </div>
+        <base-button
+          @click="$modal.hide('tournament')"
+          class="image-content-bottom-button details-button p4"
+          color="gray">
+          DETAILS
+        </base-button>
+      </div>
     </div>
   </div>
 </template>

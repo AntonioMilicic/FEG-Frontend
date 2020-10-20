@@ -45,6 +45,10 @@ export default {
       const gameCarousel = getGameCarousel;
       const contentList = listData;
 
+      let width = window.screen.width; // Smaller then tablets, set to 100vw
+      if (window.screen.width === 768) width = 500; // Tablets
+      if (window.screen.width > 768) width = 600; // All bigger screens
+
       this.$modal.show(
         RankingModal,
         {
@@ -56,7 +60,10 @@ export default {
           gameCarousel
         },
         {
+          name: 'tournament',
           height: 'auto',
+          width,
+          delay: '100',
           shiftY: 0,
           scrollable: true
         }
