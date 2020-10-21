@@ -110,6 +110,7 @@ export default {
 
 @media (max-width: 67.5rem) {
   .card-form {
+    height: var(--measure-xs);
     margin-top: 0;
   }
 }

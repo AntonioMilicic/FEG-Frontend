@@ -20,7 +20,7 @@
           @click="$emit('register-dialog')"
           class="image-content-bottom-button p4"
           color="secondary">
-          REGISTER
+          Register
         </base-button>
         <div v-else class="image-content-bottom-button p4">
           <font-awesome-icon icon="check" size="lg" class="icon" />
@@ -30,7 +30,7 @@
           @click="$modal.hide('tournament')"
           class="image-content-bottom-button details-button p4"
           color="gray">
-          DETAILS
+          Close Details
         </base-button>
       </div>
     </div>
@@ -85,12 +85,14 @@ export default {
     bottom: 0;
     width: 100%;
     height: 30%;
+    text-align: center;
     color: var(--color-white);
     background-color: var(--color-black-transparent-08);
 
     &-button {
       width: var(--button-width-s);
       height: var(--button-height-s);
+      text-transform: uppercase;
 
       .icon {
         color: var(--color-accent);
