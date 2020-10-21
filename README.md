@@ -14,4 +14,4 @@ npm run serve
 ```
 npm run build
 ```
-![](tournament.gif)
+![Tournament-view](tournament.gif)
