@@ -1,7 +1,7 @@
 <template>
   <div class="ranking-form pb-l">
     <ranking-header
-      @register-dialog="registerDialog"
+      @register-dialog="registerDialog(game.id, true)"
       :player-id="game.playerId"
       :image="game.image"
       :title="game.title"
@@ -32,9 +32,11 @@ import GameCarousel from './GameCarousel';
 import GameDescription from './GameDescription';
 import RankingHeader from './RankingHeader';
 import RankingTable from './RankingTable';
+import { registerDialog } from '@/helpers/mixins/RegisterDialog';
 
 export default {
   name: 'base-modal',
+  mixins: [registerDialog],
   props: {
     game: { type: Object, required: true },
     ranking: { type: Array, required: true },
@@ -47,32 +49,6 @@ export default {
     isActive() {
       if (this.$route.name === 'active') return true;
       return false;
-    }
-  },
-  methods: {
-    registerDialog() {
-      this.$modal.show('dialog', {
-        title: 'Please confirm your registration',
-        text: 'To enter the tournament, you have to confirm your application.',
-        buttons: [
-          {
-            title: 'Confirm',
-            handler: () => {
-              const submittedId = Math.floor((Math.random() * 10000) + 1);
-              this.$store.dispatch('submitPlayerId',
-                { activeGameId: this.game.id, playerId: submittedId });
-              this.game.playerId = submittedId;
-              this.$modal.hide('dialog');
-            }
-          },
-          {
-            title: 'Cancel',
-            handler: () => {
-              this.$modal.hide('dialog');
-            }
-          }
-        ]
-      });
     }
   },
   components: {
