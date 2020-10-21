@@ -1,14 +1,10 @@
 <template>
   <div class="header-right flex-h">
-    <div class="icon-container flex-h mt-l pt-xxs mr-s">
-      <font-awesome-icon
-        icon="wallet"
-        size="lg"
-        class="icon mx-s" />
-      <font-awesome-icon
-        icon="trophy"
-        size="lg"
-        class="icon mx-s" />
+    <div class="icon-container flex-h mr-s align-center">
+      <font-awesome-icon icon="search" size="lg" class="screen-mobile icon mx-s" />
+      <font-awesome-icon icon="wallet" size="lg" class="icon mx-s" />
+      <font-awesome-icon icon="trophy" size="lg" class="icon mx-s" />
+      <font-awesome-icon icon="user" size="2x" class="screen-mobile icon ml-s" />
     </div>
     <div class="info-content my-xs">
       <user-info :user-name="userName" :password="password">
@@ -62,5 +58,29 @@ export default {
 .info-content {
   width: 15rem;
   color: var(--color-white);
+}
+
+.screen-mobile {
+  display: none;
+}
+
+@media (max-width: 67.5rem) {
+  .header-right {
+    .icon-container {
+      margin-right: 0;
+
+      .icon {
+        margin: 0 var(--spc-xs);
+      }
+    }
+  }
+
+  .info-content {
+    display: none;
+  }
+
+  .screen-mobile {
+    display: initial;
+  }
 }
 </style>

@@ -13,14 +13,26 @@
       class="image-content-bottom
         flex-h justify-space-between
         align-center px-m">
-      <span class="h1">{{ title }}</span>
-      <base-button
-        v-if="isActive && !playerId"
-        @click="$emit('register-dialog')"
-        class="image-content-bottom-button p4"
-        color="secondary">
-        REGISTER
-      </base-button>
+      <div class="header-title h1">{{ title }}</div>
+      <div class="button-wrapper">
+        <base-button
+          v-if="isActive && !playerId"
+          @click="$emit('register-dialog')"
+          class="image-content-bottom-button p4"
+          color="secondary">
+          Register
+        </base-button>
+        <div v-else class="image-content-bottom-button p4">
+          <font-awesome-icon icon="check" size="lg" class="icon" />
+          <span class="ml-xxs">Logged in</span>
+        </div>
+        <base-button
+          @click="$modal.hide('tournament')"
+          class="image-content-bottom-button details-button p4"
+          color="gray">
+          Close Details
+        </base-button>
+      </div>
     </div>
   </div>
 </template>
@@ -46,7 +58,7 @@ export default {
 <style lang="scss" scoped>
 .image-content {
   position: relative;
-  height: 20rem;
+  height: var(--measure-xs);
 
   &-top {
     position: absolute;
@@ -73,13 +85,57 @@ export default {
     bottom: 0;
     width: 100%;
     height: 30%;
+    text-align: center;
     color: var(--color-white);
     background-color: var(--color-black-transparent-08);
 
     &-button {
       width: var(--button-width-s);
       height: var(--button-height-s);
+      text-transform: uppercase;
+
+      .icon {
+        color: var(--color-accent);
+      }
     }
+  }
+}
+
+.details-button {
+  display: none;
+}
+
+@media (max-width: 47.5rem) {
+  .image-content {
+    &-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+      height: auto;
+      padding: 0 var(--spc-s);
+      background-color: var(--color-black-200);
+
+      .header-title {
+        margin-top: var(--spc-xs);
+        padding: var(--spc-xxs) 0;
+      }
+
+      &-button {
+        width: -webkit-fill-available;
+        width: -moz-available;
+        height: var(--button-height-m);
+        margin: var(--spc-xs) var(--spc-xs);
+      }
+    }
+  }
+
+  .button-wrapper {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+  }
+
+  .details-button {
+    display: block;
   }
 }
 </style>

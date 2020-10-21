@@ -11,7 +11,6 @@ export const SUBMIT_UPCOMING_GAMES = (state, payload) => {
 };
 
 export const SUBMIT_PLAYER_ID = (state, payload) => {
-  state.activeGames.forEach(it => {
-    if (it.id === payload.activeGameId) it.playerId = payload.playerId;
-  });
+  const game = state.activeGames.find(it => it.id === payload.activeGameId);
+  game.playerId = payload.playerId;
 };

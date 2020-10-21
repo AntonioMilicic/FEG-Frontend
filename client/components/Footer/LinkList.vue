@@ -44,4 +44,22 @@ export default {
     border-right: none;
   }
 }
+
+@media (max-width: 67.5rem) {
+  .link-list {
+    .link-container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding-top: 0;
+
+      .link {
+        width: 100%;
+        padding: var(--spc-xxs) 0;
+        border-right: none;
+        border-bottom: solid var(--border-size-s) var(--color-gray-dark-300);
+      }
+    }
+  }
+}
 </style>

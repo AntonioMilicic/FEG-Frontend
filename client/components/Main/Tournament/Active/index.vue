@@ -3,7 +3,7 @@
     <tournament-card
       v-for="game in games"
       :key="game.id"
-      @register-dialog="registerDialog"
+      @register-dialog="registerDialog(game.id)"
       @show-details="showDetails"
       :title-list="titleList"
       :game="game"
@@ -22,6 +22,8 @@ import { getGameCarousel, getRanking } from '@/helpers/api/UserGames';
 import { gameExists } from '@/helpers/mixins/BooleanMixin';
 import { mapGetters } from 'vuex';
 import RankingModal from '../ranking/RankingForm';
+import { registerDialog } from '@/helpers/mixins/RegisterDialog';
+import { showModal } from '@/helpers/mixins/RankingModal';
 import TournamentCard from '../card/TournamentCard';
 import TournamentMessage from '../message/TournamentErrorMessage';
 
@@ -40,66 +42,24 @@ const detailTitleList = [
 
 export default {
   name: 'active-tournament',
-  mixins: [gameExists],
+  mixins: [gameExists, registerDialog, showModal],
   computed: { ...mapGetters({ games: 'activeGameData' }) },
   methods: {
-    registerDialog(id) {
-      this.$modal.show('dialog', {
-        title: 'Please confirm your registration',
-        text: 'To enter the tournament, you have to confirm your application.',
-        buttons: [
-          {
-            title: 'Confirm',
-            handler: () => {
-              const submittedId = Math.floor((Math.random() * 10000) + 1);
-              this.$store.dispatch('submitPlayerId',
-                { activeGameId: id, playerId: submittedId });
-              this.$modal.hide('dialog');
-            }
-          },
-          {
-            title: 'Cancel',
-            handler: () => {
-              this.$modal.hide('dialog');
-            }
-          }
-        ]
-      });
-    },
     showDetails(data) {
-      const {
-        playerId, id, image, title, rules,
-        listData: { tournamentEnds, registerEnds, totalPlayers }
-      } = data;
-      const game = {
-        playerId,
-        id,
-        title,
-        rules,
-        image
-      };
+      const { id, playerId, image, title, rules, listData } = data;
+      const { tournamentEnds, registerEnds, totalPlayers } = listData;
+
+      const game = { id, playerId, title, rules, image };
+      const titleList = detailTitleList;
+      const gameCarousel = getGameCarousel;
       const ranking = getRanking;
       ranking[ranking.length - 1].rank = totalPlayers;
-      const gameCarousel = getGameCarousel;
+
       const contentList = { tournamentEnds, registerEnds, totalPlayers };
       contentList.total = getGameCarousel.total;
-      const titleList = detailTitleList;
 
-      this.$modal.show(
-        RankingModal,
-        {
-          game,
-          ranking,
-          gameCarousel,
-          contentList,
-          titleList
-        },
-        {
-          height: 'auto',
-          shiftY: 0,
-          scrollable: true
-        }
-      );
+      this.showModal(RankingModal,
+        { game, ranking, gameCarousel, contentList, titleList });
     }
   },
   created() { this.titleList = titleList; },

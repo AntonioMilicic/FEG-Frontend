@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-h justify-space-between mx-m">
+  <div class="description-wrapper flex-h justify-space-between mx-m">
     <p class="text-color p2">
       Prva Sportska Kladionica &#169; 2020. Sva prava pridržana.
       Klađenje je dozvoljeno osobama starijima od 18 godina.
@@ -47,6 +47,14 @@ export default { name: 'footer-description' };
 
   &:hover {
     color: var(--color-white);
+  }
+}
+
+@media (max-width: 67.5rem) {
+  .description-wrapper {
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
   }
 }
 </style>

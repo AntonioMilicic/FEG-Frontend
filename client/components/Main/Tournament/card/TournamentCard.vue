@@ -7,16 +7,24 @@
       class="game-image">
     <ul class="card-list flex-v">
       <li class="card-list-title h1 upper flex-v flex-1 justify-center">
-        {{ game.title }}
+        <div class="px-xs py-xs">
+          <div class="title">{{ game.title }}</div>
+          <list-buttons
+            v-if="showButtons"
+            @register-dialog="$emit('register-dialog', game.id)"
+            @show-details="addData"
+            :player-id="game.playerId"
+            class="title-buttons" />
+        </div>
       </li>
       <li
         v-for="(content, _, index) in contentList"
         :key="content"
-        class="card-list-item flex-v flex-1 justify-center">
-        <span class="p1">
+        class="card-list-item items flex-v flex-1 justify-center">
+        <span class="left-text p1">
           {{ titleList[index] }}
         </span>
-        <span class="h3">
+        <span class="right-text h3">
           {{ content }}
         </span>
       </li>
@@ -24,7 +32,8 @@
         v-if="showButtons"
         @register-dialog="$emit('register-dialog', game.id)"
         @show-details="addData"
-        :player-id="game.playerId" />
+        :player-id="game.playerId"
+        class="list-buttons" />
     </ul>
   </div>
 </template>
@@ -82,6 +91,10 @@ export default {
 
       border-top-right-radius: var(--border-radius-xxs);
       background-color: var(--color-black-200);
+
+      .title-buttons {
+        display: none;
+      }
     }
 
     &-item {
@@ -94,4 +107,75 @@ export default {
     }
   }
 }
+
+@media (max-width: 67.5rem) {
+  .card-form {
+    height: var(--measure-xs);
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 47.5rem) {
+  .card-form {
+    flex-direction: column;
+    height: auto;
+    margin-bottom: var(--spc-s);
+    padding: 0;
+
+    .game-image {
+      width: 100%;
+      height: 40%;
+      border-radius: 0;
+    }
+
+    .card-list {
+      width: 100%;
+      border-radius: 0;
+      background-color: var(--color-gray-dark-300);
+
+      .list-buttons {
+        display: none;
+      }
+
+      &-title {
+        border-radius: 0;
+
+        .title {
+          padding-top: var(--spc-xxs);
+          padding-bottom: var(--spc-xs);
+          padding-left: var(--spc-xs);
+          text-align: start;
+          text-transform: none;
+        }
+
+        .title-buttons {
+          display: flex;
+        }
+      }
+
+      &-item {
+        border-bottom: solid var(--border-size-m) var(--color-gray-light-300);
+
+        &:first-child {
+          border-bottom: none;
+        }
+      }
+
+      .items {
+        flex-direction: row;
+        align-items: center;
+        padding: var(--spc-xxs) var(--spc-l);
+
+        .right-text {
+          margin-left: auto;
+        }
+
+        .left-text {
+          margin-right: auto;
+        }
+      }
+    }
+  }
+}
+
 </style>
