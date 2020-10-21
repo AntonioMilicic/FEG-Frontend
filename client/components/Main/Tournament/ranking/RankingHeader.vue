@@ -58,7 +58,7 @@ export default {
 <style lang="scss" scoped>
 .image-content {
   position: relative;
-  height: 20rem;
+  height: var(--measure-xs);
 
   &-top {
     position: absolute;

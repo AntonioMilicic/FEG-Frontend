@@ -52,9 +52,9 @@ export default { name: 'footer-description' };
 
 @media (max-width: 67.5rem) {
   .description-wrapper {
-    text-align: center;
     flex-direction: column-reverse;
     align-items: center;
+    text-align: center;
   }
 }
 </style>

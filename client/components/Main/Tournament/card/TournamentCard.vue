@@ -164,7 +164,7 @@ export default {
       .items {
         flex-direction: row;
         align-items: center;
-        padding: 0.25rem 1.5rem;
+        padding: var(--spc-xxs) var(--spc-l);
 
         .right-text {
           margin-left: auto;

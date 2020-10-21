@@ -47,21 +47,18 @@ export default {
 
 @media (max-width: 67.5rem) {
   .link-list {
-    div {
+    .link-container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
       padding-top: 0;
-    }
-  }
 
-  .link-container {
-    text-align: center;
-    flex-direction: column;
-    align-items: center;
-
-    .link {
-      width: 100%;
-      padding: var(--spc-xxs) 0;
-      border-right: none;
-      border-bottom: solid var(--border-size-s) var(--color-gray-dark-300);
+      .link {
+        width: 100%;
+        padding: var(--spc-xxs) 0;
+        border-right: none;
+        border-bottom: solid var(--border-size-s) var(--color-gray-dark-300);
+      }
     }
   }
 }

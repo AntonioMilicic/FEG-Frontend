@@ -70,7 +70,7 @@ export default {
       .list-item {
         flex-direction: row;
         align-items: center;
-        padding: 0.25rem 1.25rem;
+        padding: var(--spc-xxs) var(--spc-m);
 
         .right-text {
           margin-left: auto;
