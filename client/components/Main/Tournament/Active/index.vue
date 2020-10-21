@@ -46,46 +46,20 @@ export default {
   computed: { ...mapGetters({ games: 'activeGameData' }) },
   methods: {
     showDetails(data) {
-      const {
-        playerId, id, image, title, rules,
-        listData: { tournamentEnds, registerEnds, totalPlayers }
-      } = data;
-      const game = {
-        playerId,
-        id,
-        title,
-        rules,
-        image
-      };
+      const { id, playerId, image, title, rules, listData } = data;
+      const { tournamentEnds, registerEnds, totalPlayers } = listData;
+
+      const game = { id, playerId, title, rules, image };
+      const titleList = detailTitleList;
+      const gameCarousel = getGameCarousel;
       const ranking = getRanking;
       ranking[ranking.length - 1].rank = totalPlayers;
-      const gameCarousel = getGameCarousel;
+
       const contentList = { tournamentEnds, registerEnds, totalPlayers };
       contentList.total = getGameCarousel.total;
-      const titleList = detailTitleList;
 
-      let width = window.screen.width;
-      if (window.screen.width === 768) width = 500;
-      if (window.screen.width > 768) width = 600;
-
-      this.$modal.show(
-        RankingModal,
-        {
-          game,
-          ranking,
-          gameCarousel,
-          contentList,
-          titleList
-        },
-        {
-          name: 'tournament',
-          height: 'auto',
-          width,
-          delay: '100',
-          shiftY: 0,
-          scrollable: true
-        }
-      );
+      this.showModal(RankingModal,
+        { game, ranking, gameCarousel, contentList, titleList });
     }
   },
   created() { this.titleList = titleList; },
