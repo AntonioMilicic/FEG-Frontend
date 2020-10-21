@@ -1,5 +1,7 @@
 # feg-task
 
+![tournament-view](tournament.gif)
+
 ## Project setup
 ```
 npm install
@@ -14,4 +16,3 @@ npm run serve
 ```
 npm run build
 ```
-![Tournament-view](tournament.gif)
