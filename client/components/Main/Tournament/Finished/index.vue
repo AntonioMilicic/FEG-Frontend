@@ -37,8 +37,10 @@ export default {
   methods: {
     showDetails({ id, playerId, image, title, rules, listData }) {
       const game = { id, playerId, title, rules, image };
-      const contentList = listData;
       const gameCarousel = getGameCarousel;
+      const contentList = listData;
+      // TODO: Uncomment to see user marked on scoreboard, otherwise its up to chance
+      // contentList.userRank = 7;
       const ranking = getRanking;
       ranking[ranking.length - 1].rank = listData.totalPlayers;
 
