@@ -7,7 +7,7 @@
       :title="game.title"
       :is-active="isActive" />
     <div class="ranking-wrapper mx-s">
-      <ranking-table :ranking="ranking" :user-rank="userRank" />
+      <ranking-table :ranking="ranking" :user-rank="contentList.userRank" />
       <game-description
         :rules="game.rules"
         :content-list="contentList"
